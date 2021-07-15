@@ -1,0 +1,17 @@
+.authorization {
+  position: relative;
+  color: $basic-black;
+  text-decoration: none;
+  margin-left: 10px;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: 20px;
+    height: 22px;
+    background-image: url("../img/login.svg");
+    background-repeat: no-repeat;
+  }
+}

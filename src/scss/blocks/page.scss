@@ -1,0 +1,29 @@
+.page {
+  height: 100%;
+  font-size: 16px;
+  font-family: "Roboto", "Arial", sans-serif;
+  line-height: 22px;
+}
+  
+.page__body {
+  min-height: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  background-color: white;
+  color: $basic-black;
+  overflow-x: hidden;
+}
+  
+.page__main {
+  margin-top: -26px;
+}
+  
+.page__header {
+  background-color: $basic-grey;
+}
+  
+.page__footer {
+  background-color: $basic-grey;
+}
+  

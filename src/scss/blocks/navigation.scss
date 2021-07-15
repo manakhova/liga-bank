@@ -1,0 +1,30 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: $basic-black;
+  
+  &--footer {
+    flex-direction: column;
+    width: 150px;
+
+    .navigation__item {
+      margin-bottom: 9px;
+  }
+    }
+  
+  &--header {
+    min-width: 616px;
+  }
+}
+  
+.navigation__link {
+  color: $basic-black;
+  text-decoration: none;
+  
+  &--active {
+    color: $basic-blue; 
+  }
+}
