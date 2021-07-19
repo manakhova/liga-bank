@@ -1,0 +1,42 @@
+.bullets {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: -4px;
+  margin-top: -20px;
+}
+
+.services .bullets {
+  margin-left: -7px; 
+}
+  
+.bullets__item span {
+  position: relative;
+  margin: 0 6px;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: block;
+    background-color: $special-blue;
+  }
+}
+  
+.bullets__item--active span {
+  &::after {
+    background-color: white;
+  }
+}
+
+.services__bullets .bullets__item--active span {
+  &::after {
+    background-color: $dark-grey;
+  }
+}

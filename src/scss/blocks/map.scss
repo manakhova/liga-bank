@@ -1,0 +1,16 @@
+.map {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+.map__title {
+  font-size: 22px;
+  padding-left: 15px;
+}
+
+.map__img { 
+  height: 395px;
+  background-image: url("../img/map.png");
+  background-position: right;
+}

@@ -1,26 +1,30 @@
 .page-footer__container {
-  width: 1170px;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  padding-top: 52px;
-  min-height: 91px;
+  padding: 28px 15px;
+}
+
+.page-footer__logo-image {
+  width: 113px;
+  margin-left: -3px;
 }
   
 .page-footer__address {
+  display: none;
   font-size: 12px;
   line-height: 16px;
   margin-top: 15px;
 }
   
 .page-footer__navigation {
-  margin-left: 4px;
-  margin-top: 6px;
+  margin-top: 20px;
 }
   
 .page-footer__mobile {
-  margin-top: 10px;
-  margin-left: 21px;
+  margin-top: 15px;
+  margin-left: 28px;
 }
   
 .page-footer__mobile-info {
@@ -47,8 +51,8 @@
 }
   
 .page-footer__telephone {
-  margin-left: 38px;
-  margin-top: 8px;
+  margin-left: 34px;
+  margin-top: 17px;
 }
   
 .page-footer__telephone-info { 

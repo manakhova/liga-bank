@@ -7,6 +7,7 @@
   
 .page__body {
   min-height: 100%;
+  min-width: 320px;
   margin: 0;
   display: grid;
   grid-template-rows: min-content 1fr min-content;
@@ -14,10 +15,7 @@
   color: $basic-black;
   overflow-x: hidden;
 }
-  
-.page__main {
-  margin-top: -26px;
-}
+
   
 .page__header {
   background-color: $basic-grey;

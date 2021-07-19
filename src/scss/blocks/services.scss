@@ -1,0 +1,112 @@
+.services {
+  background-color: $basic-grey;
+}
+
+.services__tabs {
+  display: none;
+}
+
+.services__item {
+  padding: 15px;
+  padding-bottom: 60px;
+}
+
+.services__item-title {
+  position: relative;
+  margin-top: 40px;
+  font-size: 16px;
+}
+
+.services__item:first-of-type .services__item-title {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 42px;
+    right: -50px;
+    width: 122px;
+    height: 113px;
+    background-image: url("../img/pig-mobile.png");
+    background-repeat: no-repeat;
+  }
+}
+
+.services__item:nth-of-type(2) .services__item-title {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 42px;
+    right: -28px;
+    width: 122px;
+    height: 113px;
+    background-image: url("../img/car-mobile.png");
+    background-repeat: no-repeat;
+  }
+}
+
+.services__item:nth-of-type(3) .services__item-title {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 42px;
+    right: -50px;
+    width: 122px;
+    height: 113px;
+    background-image: url("../img/lock-mobile.png");
+    background-repeat: no-repeat;
+  }
+}
+
+.services__item:last-of-type .services__item-title {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 42px;
+    right: -50px;
+    width: 122px;
+    height: 113px;
+    background-image: url("../img/phone-mobile.png");
+    background-repeat: no-repeat;
+  }
+}
+
+.services__item-list {
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 20px;
+}
+
+.services__item-list-point {
+  position: relative;
+  margin-left: 15px;
+  margin-bottom: 11px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: -16px;
+    width: 10px;
+    height: 8px;
+    background-image: url("../img/check-mark.svg");
+    background-repeat: no-repeat;
+  }  
+}
+
+.services__item-button {
+  margin-top: 12px;
+  width: 290px;
+  text-align: center;
+}
+
+.services__item-info-main {
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 24px;
+}
+
+.services__item-info-main a {
+  font-weight: 500;
+  color: $basic-black;
+}

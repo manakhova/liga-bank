@@ -1,0 +1,21 @@
+.button {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+  padding: 11px 36px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  background-color: $basic-blue;
+  color: $basic-grey;
+  
+  &--credit {
+    display: block;
+    width: 188px;
+    color: $basic-black;
+    background-color: $basic-grey;
+    padding: 11px 31px;
+  }
+}

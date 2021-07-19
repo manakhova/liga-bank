@@ -1,0 +1,341 @@
+.calculator__title {
+  font-size: 22px;
+  margin: 0;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+.calculator__form {
+  padding: 15px;
+}
+
+.calculator__form-type  div {
+  position: relative;
+  font-weight: 500;
+  padding: 18px 15px;
+  margin-top: 15px;
+  box-sizing: border-box;
+  border: 1px solid $basic-black;
+  border-radius: 4px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 22px;
+    right: 4px;
+    width: 28px;
+    height: 12px;
+    background-image: url("../img/open.svg");
+    background-repeat: no-repeat;
+  }
+}
+
+.calculator__form-title {
+  margin: 0;
+  margin-top: -4px;
+  margin-bottom: 9px;
+}
+
+.calculator__form-type-options {
+  list-style: none;
+  margin: 0;
+  margin-top: -1px;
+  padding: 0;
+  border: 1px solid $basic-black;
+}
+
+.calculator__form-type-options li {
+  padding: 19px 15px;
+}
+
+.calculator__form-type-options li:not(:last-of-type) {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $special-grey;
+  }
+}
+
+.calculator__form-params {
+  display: flex;
+  flex-direction: column;
+  margin-top: 28px;
+}
+
+.calculator__form-params label {
+  margin-bottom: 9px;
+}
+
+.calculator__input {
+  padding: 19px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.calculator__form-params div .calculator__input {
+  border: none;
+  padding: 0;
+  font-weight: 500;
+}
+
+.calculator__form-credit {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid $basic-black;
+  border-radius: 4px;
+  margin-bottom: 33px;
+
+  &::after {
+    content: "От 1 200 000  до 25 000 000 рублей";
+    font-size: 14px;
+    display: block;
+    position: absolute;
+    bottom: -25px;
+    right: 0;
+    width: 100%;
+  }
+}
+
+.calculator__button {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  z-index: 1;
+  padding: 25px;
+  height: 59px;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 31px;
+    right: 11px;
+    width: 16px;
+    height: 1px;
+    background-color: #1F1E25;
+  }
+}
+
+.calculator__button:last-of-type {
+  &::before {
+    right: 14px;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 23px;
+    right: 21px;
+    width: 1px;
+    height: 16px;
+    background-color: #1F1E25;
+  } 
+}
+
+.calculator__range {
+  display: flex;
+  flex-direction: column;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+.calculator__range div {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+}
+
+.calculator__range span {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.calculator__range input {
+  -webkit-appearance: none;
+  height: 1px;
+  background-color: $special-grey;
+}
+
+.calculator__range input::-moz-range-track {
+  height: 1px;
+  background-color: $special-grey;
+}
+
+.calculator__range input::-webkit-slider-thumb {
+  position: relative;
+  -webkit-appearance: none;
+  background-color: $basic-blue;
+  width: 14px;
+  height: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &::after {
+    content: "10%";
+    display: block;
+    position: absolute;
+    bottom: 23px;
+    right: 21px;
+    width: 10px;
+    height: 16px;
+    color: #1F1E25;
+  }
+}
+
+.calculator__range input::-moz-range-thumb {
+  position: relative;
+  background-color: $basic-blue;
+  width: 14px;
+  height: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  
+  &::after {
+    content: "10%";
+    display: block;
+    position: absolute;
+    bottom: 23px;
+    right: 21px;
+    width: 10px;
+    height: 16px;
+    color: #1F1E25;
+  }
+}
+
+.calculator__checkbox label {
+  position: relative;
+  font-size: 14px;
+  margin-left: 24px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: -25px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $dark-grey;
+    border-radius: 2px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+  }
+}
+
+.calculator__checkbox input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.calculator__checkbox input:checked + label::before {
+  background-color: $basic-blue;
+  border-color: $basic-blue;
+  background-image: url("../img/check-mark-white.svg");
+}
+
+.calculator__form-offer,
+.calculator__form-warning{
+  background-color: $basic-grey;
+  margin-top: 34px;
+  padding: 15px;
+}
+
+.calculator__form-offer .calculator__form-title,
+.calculator__form-warning .calculator__form-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 16px;
+  line-height: 25px;
+}
+
+.calculator__form-offer-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+.calculator__form-offer-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 17px;
+}
+
+.calculator__form-offer-item span:first-of-type {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.calculator__form-button {
+  width: 100%;
+  padding: 18px 36px;
+  margin-bottom: 23px;
+}
+
+.calculator__form-total {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+}
+
+.calculator__form-total .calculator__form-title {
+  align-self: center;
+}
+
+.calculator__form-total-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 30px;
+}
+
+.calculator__form-total-item {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 15px;
+  margin-bottom: 17px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $special-grey;
+  }
+}
+
+.calculator__form-total-item span:last-of-type {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.calculator__form-total-user {
+  display: flex;
+  flex-direction: column;
+  margin-top: 13px;
+}
+
+.calculator__form-total-user input {
+  padding: 19px 14px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.calculator__form-total-user + .calculator__form-button {
+  margin-top: 10px;
+}

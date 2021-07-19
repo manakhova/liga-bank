@@ -1,0 +1,82 @@
+.slider__list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slider__item {
+  background-color: $basic-blue;
+  background-image: url("../img/blue-background.png");
+  padding: 15px;
+  height: 226px;
+  box-sizing: border-box;
+}
+
+.slider__item:nth-of-type(2){
+  background-color: $basic-grey;
+  background-image: url("../img/man.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 65%;
+  padding: 15px;
+}
+
+.slider__item:nth-of-type(3){
+  background-color: $basic-grey;
+  background-image: url("../img/girl.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 63%;
+  padding: 15px;
+}
+  
+.slider__item-info {
+  margin: 0 auto;
+}
+  
+.slider__item-title {
+  font-size: 38px;
+  font-weight: 700;
+  margin: 0;
+  margin-top: 35px;
+  color: $basic-black;
+}
+
+.slider__item:first-of-type  .slider__item-title {
+  position: relative;
+  color: white;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: -19px;
+    right: -340px;
+    width: 430px;
+    height: 262px;
+    background-image: url("../img/black-card.png");
+    background-repeat: no-repeat;
+  } 
+}
+  
+.slider__item-slogan {
+  margin: 17px 0 27px;
+  color: $basic-black;
+  line-height: 19px;
+}
+
+.slider__item:first-of-type .slider__item-slogan {
+  color: white;
+}
+
+.slider__bullets {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: -4px;
+  margin-top: -px;
+}
+

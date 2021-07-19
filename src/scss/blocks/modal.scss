@@ -1,0 +1,96 @@
+.modal {
+  padding: 15px;
+}
+
+.modal__form {
+  border: 4px solid $basic-blue;
+  padding: 45px 11px 40px;
+  background-color: $basic-grey;
+}
+
+.modal__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__button--close {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  margin-top: -5px;
+  border: none;
+  background-color: transparent;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 3px;
+    width: 18px;
+    height: 2px;
+    background-color: #1F1E25;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 3px;
+    width: 18px;
+    height: 2px;
+    background-color: #1F1E25;
+    transform: rotate(-45deg);
+  }
+}
+
+.modal__form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px;
+  margin-top: 25px;
+}
+
+.modal__input {
+  padding: 21px 10px;
+  background-color: $basic-grey;
+  border: 1px solid $basic-black;
+  border-radius: 4px;
+  margin-bottom: 21px;
+}
+
+.modal__label {
+  margin-bottom: 5px;
+}
+
+.modal__label:last-of-type {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 15px;
+    width: 22px;
+    height: 12px;
+    background-image: url("../img/eye.svg");
+  }
+}
+
+.modal__link {
+  order: 1;
+  text-decoration: none;
+  font-size: 14px;
+  color: $basic-black;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.modal__form-container .modal__button {
+  padding: 18px;
+  margin-top: 9px;
+  margin-bottom: 8px;
+}
