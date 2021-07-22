@@ -6,7 +6,7 @@ const Slider = () => {
       <h2 className="visually-hidden">Слайдер</h2>
       <ul className="slider__list">
         <li className="slider__item">
-          <div className="slider__item-info">
+          <div className="slider__item-info" >
             <h1 className="slider__item-title">Лига Банк</h1>
             <p className="slider__item-slogan">Кредиты на любой случай</p>
             <a href="/" className="slider__item-button button button--credit">Рассчитать кредит</a>

@@ -3,9 +3,11 @@
   justify-content: center;
   list-style: none;
   padding: 0;
-  margin: 0;
-  margin-left: -4px;
-  margin-top: -20px;
+
+  //Desktop
+  @media (min-width: 1024px) {
+    display: none;
+  }
 }
 
 .services .bullets {
@@ -15,6 +17,11 @@
 .bullets__item span {
   position: relative;
   margin: 0 6px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    margin: 0 8px;
+  }
   
   &::after {
     content: "";
@@ -26,6 +33,12 @@
     border-radius: 50%;
     display: block;
     background-color: $special-blue;
+
+    //Tablet
+    @media (min-width: 768px) {
+      width: 8px;
+      height: 8px;
+    }
   }
 }
   

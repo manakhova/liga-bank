@@ -12,6 +12,18 @@
   padding: 15px;
   height: 226px;
   box-sizing: border-box;
+
+  //Tablet
+  @media (min-width: 768px) {
+    height: 300px;
+    padding: 46px 86px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    height: 400px;
+    padding: 88px 268px;
+  }
 }
 
 .slider__item:nth-of-type(2){
@@ -21,6 +33,19 @@
   background-size: cover;
   background-position-x: 65%;
   padding: 15px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    height: 300px;
+    padding: 46px 86px;
+    background-position: 62%;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    height: 400px;
+    padding: 88px 268px;
+  }
 }
 
 .slider__item:nth-of-type(3){
@@ -30,10 +55,29 @@
   background-size: cover;
   background-position-x: 63%;
   padding: 15px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    height: 300px;
+    padding: 46px 86px;
+    background-position: 50%;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    height: 400px;
+    padding: 88px 268px;
+  }
 }
   
 .slider__item-info {
   margin: 0 auto;
+
+  //Desktop
+  @media (min-width: 1024px) {
+   min-width: 585px;
+   max-width: 851px;
+  }
 }
   
 .slider__item-title {
@@ -42,12 +86,22 @@
   margin: 0;
   margin-top: 35px;
   color: $basic-black;
+
+  //Tablet
+  @media (min-width: 768px) {
+    font-size: 46px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    font-size: 54px;
+  }
 }
 
 .slider__item:first-of-type  .slider__item-title {
   position: relative;
   color: white;
-  
+
   &::after {
     content: "";
     position: absolute;
@@ -57,6 +111,20 @@
     height: 262px;
     background-image: url("../img/black-card.png");
     background-repeat: no-repeat;
+
+    //Tablet
+    @media (min-width: 768px) {
+      right: -96px;
+      top: -42px;
+      background-image: url("../img/bank-cards-tab.png");
+    }
+
+    //Desktop
+    @media (min-width: 1194px) {
+      right: -30px;
+      top: -62px;
+      background-image: url("../img/bank-cards.png");
+    }
   } 
 }
   
@@ -64,6 +132,27 @@
   margin: 17px 0 27px;
   color: $basic-black;
   line-height: 19px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    font-size: 18px;
+    margin-top: 22px;
+    margin-bottom: 32px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 38px;
+  }
+}
+
+.slider__item-slogan br {
+  //Tablet
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 .slider__item:first-of-type .slider__item-slogan {
@@ -77,6 +166,17 @@
   padding: 0;
   margin: 0;
   margin-left: -4px;
-  margin-top: -px;
+  margin-top: -20px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    margin-left: -8px;
+    margin-top: -23px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    margin-top: -49px;
+  }
 }
 

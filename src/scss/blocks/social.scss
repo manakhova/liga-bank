@@ -1,8 +1,22 @@
 .social__list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 40%;
   list-style: none;
   margin-top: 19px;
   padding: 0;
+
+  //Tablet
+  @media (min-width: 768px) {
+    margin-top: 28px;
+    width: 61%;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    margin: 0;
+    margin-top: 10px;;
+    width: 102px;
+  }
 }

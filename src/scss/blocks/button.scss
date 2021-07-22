@@ -10,6 +10,20 @@
   font-size: 14px;
   background-color: $basic-blue;
   color: $basic-grey;
+
+  //Tablet
+  @media (min-width: 768px) {
+    font-size: 16px;
+    text-align: center;
+    padding: 14px 30px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    font-size: 18px;
+    width: 243px;
+    padding: 15px 30px;
+  }
   
   &--credit {
     display: block;
@@ -17,5 +31,17 @@
     color: $basic-black;
     background-color: $basic-grey;
     padding: 11px 31px;
+
+    //Tablet
+    @media (min-width: 768px) {
+      padding: 13px 30px;
+      width: 206px;
+    }
+
+    //Desktop
+    @media (min-width: 1024px) {
+      padding: 16px 17px;
+      width: 233px;
+    }
   }
 }

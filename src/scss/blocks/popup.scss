@@ -7,15 +7,28 @@
   flex-direction: column;
   background-color: $basic-grey;
   padding: 9px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    width: 678px;
+    height: 193px;
+    box-sizing: border-box;
+    padding: 25px;
+  }
 }
 
 .popup__button {
-  align-self: end;
+  align-self: flex-end;
   position: relative;
   width: 22px;
   height: 22px;
   border: none;
   background-color: transparent;
+
+  //Tablet
+  @media (min-width: 768px) {
+    padding: 10px;
+  }
 
   &::before {
     content: "";
@@ -27,6 +40,14 @@
     height: 2px;
     background-color: #1F1E25;
     transform: rotate(45deg);
+
+     //Tablet
+    @media (min-width: 768px) {
+      top: 11px;
+      right: -1px;
+      width: 25px;
+      height: 3px;
+    }
   }
 
   &::after {
@@ -39,6 +60,14 @@
     height: 2px;
     background-color: #1F1E25;
     transform: rotate(-45deg);
+
+    //Tablet
+    @media (min-width: 768px) {
+      top: 11px;
+      right: -1px;
+      width: 25px;
+      height: 3px;
+    }
   }
 }
 
@@ -47,9 +76,37 @@
   font-size: 18px;
   text-align: center;
   margin-top: 7px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    font-size: 22px;
+    margin-top: 9px;
+  }
+}
+
+.popup__title br {
+  //Tablet
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 .popup__text {
   text-align: center;
   margin-bottom: 25px;
+}
+
+.popup__text br:first-of-type {
+  //Tablet
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.popup__text br:last-of-type {
+  display: none;
+  //Tablet
+  @media (min-width: 768px) {
+    display: block;
+  }
 }

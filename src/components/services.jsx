@@ -6,21 +6,33 @@ const Services = () => {
       <h2 className="visually-hidden">Услуги</h2>
       <ul className="services__tabs">
         <li className="services__tabs-item services__tabs-item--active">
-          <span>Вклады</span>
+          <svg width="34" height="33">
+            <use xlinkHref="#vault"></use>
+          </svg>
+          Вклады
         </li>
         <li className="services__tabs-item">
-          <span>Кредиты</span>
+          <svg width="34" height="30">
+            <use xlinkHref="#cards"></use>
+          </svg>
+          Кредиты
         </li>
         <li className="services__tabs-item">
-          <span>Страхование</span>
+          <svg width="28" height="34">
+            <use xlinkHref="#security"></use>
+          </svg>
+          Страхование
         </li>
         <li className="services__tabs-item">
-          <span>Онлайн-сервисы</span>
+          <svg width="20" height="34">
+            <use xlinkHref="#phone-blue"></use>
+          </svg>
+          Онлайн-сервисы
         </li>
       </ul>
       <article className="services__item">
         <h3 className="services__item-title">
-          Вклады Лига Банка – это выгодная инвестиция в свое будущее
+          Вклады Лига Банка – это выгодная <br/> инвестиция в свое будущее
         </h3>
         <ul className="services__item-list">
           <li className="services__item-list-point">
@@ -30,12 +42,12 @@ const Services = () => {
             Разнообразные условия
           </li>
           <li className="services__item-list-point">
-            Возможность ежемесячной <br/> капитализации или вывод <br/> процентов на банковскую карту
+            Возможность ежемесячной <br/> капитализации <br/> или вывод <br/> процентов на банковскую карту
           </li>
         </ul>
         <a className="services__item-button button" href="/">Узнать подробнее</a>
       </article>
-      <article className="services__item" style={{display: "none"}}>
+      <article className="services__item"  style={{display: "none"}}>
         <h3 className="services__item-title">
           Лига Банк выдает кредиты <br/> под любые цели
         </h3>
@@ -52,7 +64,7 @@ const Services = () => {
         </ul>
         <p className="services__item-info-main">
           Рассчитайте ежемесячный платеж <br/>
-          и ставку по кредиту воспользовавшись нашим <a href="/">кредитным калькулятором</a>
+          и ставку по кредиту воспользовавшись <br/> нашим <a href="/">кредитным калькулятором</a>
         </p>
       </article>
       <article className="services__item" style={{display: "none"}}>
@@ -74,7 +86,7 @@ const Services = () => {
       </article>
       <article className="services__item" style={{display: "none"}}>
         <h3 className="services__item-title">
-          Лига Банк — это огромное <br/> количество онлайн-сервисов <br/> для вашего удобства
+          Лига Банк — это огромное <br/> количество <br/> онлайн-сервисов <br/> для вашего удобства
         </h3>
         <ul className="services__item-list">
           <li className="services__item-list-point">
@@ -82,7 +94,7 @@ const Services = () => {
             который всегда под рукой
           </li>
           <li className="services__item-list-point">
-            Приложение Лига-проездной <br/> позволит вам оплачивать <br/> билеты по всему миру
+            Приложение Лига-проездной <br/> позволит <br/> вам оплачивать <br/> билеты по всему миру
           </li>
         </ul>
         <a className="services__item-button button" href="/">Узнать подробнее</a>

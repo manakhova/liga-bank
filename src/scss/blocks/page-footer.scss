@@ -4,27 +4,110 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 28px 15px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    padding: 48px 45px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    justify-content: space-between;
+    max-width: 1170px;
+    padding: 48px 100px;
+  }
+}
+
+.page-footer__main {
+  //Tablet
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 501px;
+  }
 }
 
 .page-footer__logo-image {
   width: 113px;
   margin-left: -3px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    width: 136px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    width: 152px;
+  }
 }
   
 .page-footer__address {
   display: none;
-  font-size: 12px;
-  line-height: 16px;
-  margin-top: 15px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    display: block;
+    font-size: 12px;
+    line-height: 17px;
+    margin-top: 18px;
+    order: 1;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    margin-top: -88px;
+    margin-left: -2px;
+  }
 }
   
 .page-footer__navigation {
   margin-top: 20px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    margin-top: 30px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    margin-top: 6px;
+  }
+}
+
+.page-footer__contacts {
+  //Tablet
+  @media (min-width: 768px) {
+    margin-left: 102px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0;
+    width: 610px;
+  }
 }
   
 .page-footer__mobile {
   margin-top: 15px;
   margin-left: 28px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    margin-top: 10px;
+  }
 }
   
 .page-footer__mobile-info {
@@ -53,6 +136,17 @@
 .page-footer__telephone {
   margin-left: 34px;
   margin-top: 17px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    margin-top: 24px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    margin-top: 10px;;
+    margin-left: 37px;
+  }
 }
   
 .page-footer__telephone-info { 
@@ -70,5 +164,10 @@
     height: 20px;
     background-image: url("../img/telephone.svg");
     background-repeat: no-repeat;
+
+    //Desktop
+    @media (min-width: 1024px) {
+      left: -33px;
+    }
   }
 }

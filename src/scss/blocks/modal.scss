@@ -1,11 +1,33 @@
 .modal {
   padding: 15px;
+  width: 290px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    width: 678px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    width: 544px;
+  }
 }
 
 .modal__form {
+  position: relative;
   border: 4px solid $basic-blue;
   padding: 45px 11px 40px;
   background-color: $basic-grey;
+
+  //Tablet
+  @media (min-width: 768px) {
+    padding: 55px 83px 40px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    padding: 55px 55px 40px;
+  }
 }
 
 .modal__container {
@@ -31,6 +53,13 @@
     height: 2px;
     background-color: #1F1E25;
     transform: rotate(45deg);
+
+    //Tablet
+    @media (min-width: 768px) {
+      top: 12px;
+      right: -3px;
+      width: 24px;
+    }
   }
 
   &::after {
@@ -43,6 +72,13 @@
     height: 2px;
     background-color: #1F1E25;
     transform: rotate(-45deg);
+
+    //Tablet
+    @media (min-width: 768px) {
+      top: 12px;
+      right: -3px;
+      width: 24px;
+    }
   }
 }
 
@@ -51,6 +87,12 @@
   flex-direction: column;
   padding: 0 5px;
   margin-top: 25px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    padding: 0;
+    margin-top: 37px;
+  }
 }
 
 .modal__input {
@@ -59,24 +101,57 @@
   border: 1px solid $basic-black;
   border-radius: 4px;
   margin-bottom: 21px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    margin-bottom: 24px;
+  }
+}
+
+.modal__input:last-of-type {
+  //Tablet
+  @media (min-width: 768px)  {
+    margin: 0;
+    margin-bottom: 6px;
+  } 
+
+  //Desktop
+  @media (min-width: 1024px) {
+    margin-bottom: 3px;
+  }
 }
 
 .modal__label {
   margin-bottom: 5px;
+
+  //Desktop
+  @media (min-width: 1024px) {
+    margin-bottom: 6px;
+  } 
 }
 
-.modal__label:last-of-type {
-  position: relative;
+.modal__password-button {
+  position: absolute;
+  top: 260px;
+  right: 30px;
+  width: 22px;
+  height: 12px;
+  background-image: url("../img/eye.svg");
+  background-repeat: no-repeat;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
 
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 50px;
-    right: 15px;
-    width: 22px;
-    height: 12px;
-    background-image: url("../img/eye.svg");
+  //Tablet
+  @media (min-width: 768px) {
+    top: 283px;
+    right: 108px; 
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    top: 283px;
+    right: 80px;
   }
 }
 
@@ -87,10 +162,30 @@
   color: $basic-black;
   opacity: 0.5;
   text-align: center;
+
+  //Tablet
+  @media (min-width: 768px)  {
+    order: 0;
+    font-size: 12px;
+    text-align: right;
+  }
 }
 
 .modal__form-container .modal__button {
   padding: 18px;
   margin-top: 9px;
   margin-bottom: 8px;
+
+   //Tablet
+  @media (min-width: 768px)  {
+    margin-top: 24px;
+    margin-bottom: 17px;
+    width: 100%;
+    padding: 20px;
+  } 
+
+  //Desktop
+  @media (min-width: 1024px) {
+    padding: 18px;
+  }
 }

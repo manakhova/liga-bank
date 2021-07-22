@@ -14,6 +14,7 @@ const Modal = () => {
 
           <label className="modal__label" htmlFor="password">Пароль</label>
           <input id="password" className="modal__input" type="password"/>
+          <button className="modal__password-button" type="button"></button>
           <a className="modal__link" href="/">Забыли пароль?</a>
           <button className="modal__button button" type="submit">Войти</button>
         </div>

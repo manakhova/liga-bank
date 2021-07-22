@@ -1,20 +1,121 @@
 .services {
   background-color: $basic-grey;
+
+  //Desktop
+  @media (min-width: 1024px) {
+    max-width: 1170px;
+    margin: 20px auto;
+  }
 }
 
 .services__tabs {
   display: none;
+
+  //Desktop
+  @media (min-width: 1024px) {
+    display: flex;
+    list-style: none;
+    margin-top: 60px;
+    padding: 0;
+    max-width: 1170px;
+  }
+}
+
+.services__tabs-item {
+  //Desktop
+  @media (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 91px;
+    box-sizing: border-box;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 35px;
+  }
+
+  &--active {
+    //Desktop
+    @media (min-width: 1024px) {
+      background-color: $basic-grey;
+    }
+  }
+}
+
+.services__tabs-item svg {
+  //Desktop
+  @media (min-width: 1024px) {
+    margin-right: 9px;
+  }
 }
 
 .services__item {
   padding: 15px;
-  padding-bottom: 60px;
+  padding-bottom: 25px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    padding: 57px 45px;
+    padding-bottom: 19px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    padding: 40px 70px;
+    padding-bottom: 57px;
+  }
+}
+
+.services__item:nth-of-type(3) {
+  //Desktop
+  @media (min-width: 1024px) {
+    padding-bottom: 50px;
+  }
+}
+
+.services__item:nth-of-type(3) {
+  //Tablet
+  @media (min-width: 768px) {
+    padding-bottom: 40px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    padding-bottom: 59px;
+  }
+}
+
+.services__item:last-of-type {
+  //Tablet
+  @media (min-width: 768px) {
+    padding-bottom: 34px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    padding-bottom: 59px;
+  }
 }
 
 .services__item-title {
   position: relative;
   margin-top: 40px;
   font-size: 16px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    font-size: 18px;
+    margin: 0;
+    line-height: 24px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    font-size: 22px;
+    line-height: 31px;
+  }
 }
 
 .services__item:first-of-type .services__item-title {
@@ -27,6 +128,23 @@
     height: 113px;
     background-image: url("../img/pig-mobile.png");
     background-repeat: no-repeat;
+
+    //Tablet
+    @media (min-width: 768px) {
+      top: 4px;
+      right: 29px;
+      width: 260px;
+      height: 280px;
+      background-image: url("../img/pig-tab.png");
+    }
+
+    //Desktop
+    @media (min-width: 1024px) {
+      right: 65px;
+      width: 440px;
+      height: 290px;
+      background-image: url("../img/pig-desk.png");
+    }
   }
 }
 
@@ -40,6 +158,23 @@
     height: 113px;
     background-image: url("../img/car-mobile.png");
     background-repeat: no-repeat;
+
+    //Tablet
+    @media (min-width: 768px) {
+      top: 4px;
+      right: -2px;
+      width: 291px;
+      height: 280px;
+      background-image: url("../img/car-tab.png");
+    }
+
+    //Desktop
+    @media (min-width: 1024px) {
+      right: 65px;
+      width: 440px;
+      height: 290px;
+      background-image: url("../img/car-desk.png");
+    }
   }
 }
 
@@ -53,6 +188,25 @@
     height: 113px;
     background-image: url("../img/lock-mobile.png");
     background-repeat: no-repeat;
+
+
+    //Tablet
+    @media (min-width: 768px) {
+      top: 4px;
+      right: -2px;
+      width: 291px;
+      height: 280px;
+      background-image: url("../img/lock-tab.png");
+    }
+
+    //Desktop
+    @media (min-width: 1024px) {
+      top: -6px;
+      right: 65px;
+      width: 440px;
+      height: 290px;
+      background-image: url("../img/lock-desk.png");
+    }
   }
 }
 
@@ -66,6 +220,40 @@
     height: 113px;
     background-image: url("../img/phone-mobile.png");
     background-repeat: no-repeat;
+
+    //Tablet
+    @media (min-width: 768px) {
+      top: 4px;
+      right: -2px;
+      width: 291px;
+      height: 280px;
+      background-image: url("../img/phone-tab.png");
+    }
+
+    //Desktop
+    @media (min-width: 1024px) {
+      top: -6px;
+      right: 65px;
+      width: 440px;
+      height: 290px;
+      background-image: url("../img/phone-desk.png");
+    }
+  }
+}
+
+.services__item:last-of-type .services__item-title br:nth-of-type(2) {
+  display: none;
+
+  //Tablet
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.services__item:last-of-type .services__item-title br:not(:nth-of-type(2)) {
+  //Tablet
+  @media (min-width: 768px) {
+    display: none;
   }
 }
 
@@ -75,12 +263,32 @@
   font-size: 14px;
   line-height: 18px;
   margin-top: 20px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    margin-top: 25px;
+    font-size: 16px;
+  }
 }
 
 .services__item-list-point {
   position: relative;
   margin-left: 15px;
   margin-bottom: 11px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    margin-left: 21px;
+    margin-bottom: 13px;
+    line-height: 22px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 14px;
+  }
 
   &::before {
     content: "";
@@ -91,19 +299,78 @@
     height: 8px;
     background-image: url("../img/check-mark.svg");
     background-repeat: no-repeat;
+
+    //Tablet
+    @media (min-width: 768px) {
+      top: 8px;
+      left: -20px;
+      width: 15px;
+      background-image: url("../img/check-mark-desk.svg");
+    }
   }  
+}
+
+.services__item:last-of-type .services__item-list-point {
+  //Tablet
+  @media (min-width: 768px) {
+    margin-bottom: 12px;
+  }
+}
+
+.services__item:first-of-type .services__item-list-point:last-of-type br:nth-of-type(2),
+.services__item:last-of-type .services__item-list-point:last-of-type br:nth-of-type(2) {
+  display: none;
+  //Tablet
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.services__item:first-of-type .services__item-list-point:last-of-type br:not(:nth-of-type(2)),
+.services__item:last-of-type .services__item-list-point:last-of-type br:not(:nth-of-type(2)) {
+  //Tablet
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 .services__item-button {
   margin-top: 12px;
   width: 290px;
   text-align: center;
+
+  //Tablet
+  @media (min-width: 768px) {
+    width: 198px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    font-size: 16px;
+    margin-top: 18px;
+  }
 }
 
 .services__item-info-main {
   font-size: 14px;
   line-height: 20px;
   margin-top: 24px;
+  margin-bottom: 24px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    font-size: 16px;
+    margin-top: 31px;
+    line-height: 21px;
+    margin-bottom: 6px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    font-size: 18px;
+    line-height: 25px;
+    margin-top: 28px;
+  }
 }
 
 .services__item-info-main a {
