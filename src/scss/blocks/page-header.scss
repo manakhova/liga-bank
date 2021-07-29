@@ -14,7 +14,7 @@
 
   //Desktop
   @media (min-width: 1024px) {
-    padding: 26px 97px 35px;
+    padding: 26px 97px 22px;
     max-width: 1366px;
   }
 
@@ -84,11 +84,22 @@
    //Tablet
    @media (min-width: 768px) {
     display: block;
+    margin-left: 25px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    margin-left: 51px;
   }
 }
   
 .page-header__container--open .page-header__navigation {
   display: block;
+
+  //Tablet
+  @media (min-width: 768px) {
+    margin-left: 0;
+  }
 }
 
 .page-header__open-button {
@@ -164,6 +175,7 @@
 
 .page-header__container--open .page-header__authorization {
   padding: 20px 45px;
+  align-self: baseline;
 
   //Tablet
   @media (min-width: 768px) {
@@ -172,6 +184,6 @@
 
   //Desktop
   @media (min-width: 1024px) {
-    padding: 0;
+    padding: 12px 25px; 
   }
 }

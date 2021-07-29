@@ -12,6 +12,12 @@
 
 .services .bullets {
   margin-left: -7px; 
+  margin-top: 16px;
+
+  //Tablet
+  @media (min-width: 768px) {
+    margin-top: 15px;
+  }
 }
   
 .bullets__item span {

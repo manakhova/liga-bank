@@ -1,16 +1,12 @@
 .modal {
   padding: 15px;
-  width: 290px;
-
-  //Tablet
-  @media (min-width: 768px) {
-    width: 678px;
-  }
-
-  //Desktop
-  @media (min-width: 1024px) {
-    width: 544px;
-  }
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
 }
 
 .modal__form {
@@ -18,15 +14,29 @@
   border: 4px solid $basic-blue;
   padding: 45px 11px 40px;
   background-color: $basic-grey;
+  width: 290px;
+  position: fixed;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  margin-left: -145px;
+  margin-top: -227px;
 
   //Tablet
   @media (min-width: 768px) {
     padding: 55px 83px 40px;
+    width: 678px;
+    margin-left: -339px;
+    margin-top: -247px;
   }
 
   //Desktop
   @media (min-width: 1024px) {
     padding: 55px 55px 40px;
+    width: 544px;
+    margin-left: -272px;
+    margin-top: -207px;
   }
 }
 

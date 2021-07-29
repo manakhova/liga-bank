@@ -25,6 +25,27 @@
   }
 }
 
+.calculator--error + div,
+.calculator--error + input {
+  border: 1px solid red;
+  border-radius: 4px;
+}
+
+.calculator--error {
+  position: relative;
+
+  &::after {
+    content: "Некорректное значение";
+    position: absolute;
+    top: 31px;
+    right: 238px;
+    display: block;
+    z-index: 1;
+    font-size: 12px;
+    color: red;
+  }
+}
+
 .calculator__form {
   padding: 15px;
 
@@ -54,8 +75,9 @@
   }
 }
 
-.calculator__form-type  div {
+.calculator__form-select{
   position: relative;
+  cursor: pointer;
   font-weight: 500;
   padding: 18px 15px;
   margin-top: 15px;
@@ -85,6 +107,13 @@
   }
 }
 
+.calculator__form-select--open {
+  &::after {
+    transform: rotate(180deg);
+    right: 22px;
+  }
+}
+
 .calculator__form-title {
   margin: 0;
   margin-top: -4px;
@@ -99,7 +128,7 @@
   //Desktop
   @media (min-width: 1024px) {
     font-size: 22px;
-    margin-bottom: 23px;
+    margin-bottom: 25px;
   }
 }
 
@@ -114,6 +143,7 @@
 
 .calculator__form-type-options li {
   padding: 19px 15px;
+  cursor: pointer;
 
   //Tablet
   @media (min-width: 768px) {
@@ -172,6 +202,7 @@
   border: none;
   padding: 0;
   font-weight: 500;
+  width: 50%;
 }
 
 .calculator__form-credit {
@@ -180,6 +211,12 @@
   justify-content: space-between;
   border: 1px solid $basic-black;
   border-radius: 4px;
+}
+
+.calculator__form-credit + span {
+  color: $basic-black;
+  opacity: 0.5;
+  font-size: 14px;
   margin-bottom: 33px;
 
   //Tablet
@@ -189,19 +226,7 @@
 
   //Desktop
   @media (min-width: 1024px) {
-    margin-bottom: 44px;
-  }
-
-  &::after {
-    content: "От 1 200 000  до 25 000 000 рублей";
-    font-size: 14px;
-    display: block;
-    position: absolute;
-    bottom: -25px;
-    right: 0;
-    width: 100%;
-    color: $basic-black;
-    opacity: 0.5;
+    margin-bottom: 21px;
   }
 }
 
@@ -603,6 +628,13 @@
     font-size: 18px;
     width: 100%;
     margin-bottom: 28px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    background-color: $basic-grey;
+    border: 1px solid $basic-black;
+    border-radius: 6px;
   }
 }
 

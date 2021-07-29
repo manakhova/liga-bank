@@ -1,5 +1,12 @@
 .popup {
   padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
 }
 
 .popup__container {
@@ -7,6 +14,16 @@
   flex-direction: column;
   background-color: $basic-grey;
   padding: 9px;
+  position: relative;
+  width: 290px;
+  height: 198px;
+  position: fixed;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  margin-left: -145px;
+  margin-top: -99px;
 
   //Tablet
   @media (min-width: 768px) {
@@ -14,6 +31,14 @@
     height: 193px;
     box-sizing: border-box;
     padding: 25px;
+    margin-left: -339px;
+    margin-top: -96px;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    width: 500px;
+    margin-left: -250px;
   }
 }
 

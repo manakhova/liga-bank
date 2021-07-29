@@ -34,6 +34,7 @@
     font-size: 18px;
     font-weight: 500;
     padding: 35px;
+    border: none;
   }
 
   &--active {
@@ -48,32 +49,55 @@
   //Desktop
   @media (min-width: 1024px) {
     margin-right: 9px;
+    pointer-events: none;
+  }
+}
+
+.services__container {
+  @media (max-width: 767px) {
+    overflow: hidden;
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  //Tablet
+  @media (min-width: 768px) and  (max-width: 1024px) {
+    width: 768px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+}
+
+.services__slider {
+  display: flex;
+  user-select: none;
+
+  //Desktop
+  @media (min-width: 1024px) {
+    display: block;
   }
 }
 
 .services__item {
   padding: 15px;
   padding-bottom: 25px;
+  flex-shrink: 0;
+  margin: 0 auto;
 
   //Tablet
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     padding: 57px 45px;
     padding-bottom: 19px;
+    width: 678px;
   }
 
   //Desktop
   @media (min-width: 1024px) {
-    padding: 40px 70px;
+    padding: 55px 70px;
     padding-bottom: 57px;
   }
 }
 
-.services__item:nth-of-type(3) {
-  //Desktop
-  @media (min-width: 1024px) {
-    padding-bottom: 50px;
-  }
-}
 
 .services__item:nth-of-type(3) {
   //Tablet
@@ -83,7 +107,7 @@
 
   //Desktop
   @media (min-width: 1024px) {
-    padding-bottom: 59px;
+    padding-bottom: 80px;
   }
 }
 
@@ -95,7 +119,7 @@
 
   //Desktop
   @media (min-width: 1024px) {
-    padding-bottom: 59px;
+    padding-bottom: 72px;
   }
 }
 
