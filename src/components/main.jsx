@@ -7,19 +7,37 @@ import Slider from './slider';
 import Services from './services';
 import Calculator from './calculator';
 import Map from './map';
-import {cleanAllCreditInputs} from '../utils';
+import {cleanAllCreditInputs, closeSelect, getNewBullet} from '../utils';
 
 const Main = (props) => {
-  const {currentService, creditType, setNewService, setCreditType, setPrice, setTime, setDownpayment} = props;
+  const {currentService, 
+    currentSlide,
+    setNewSlide,
+    creditType, 
+    setOfferData,
+    setNewService, 
+    setCreditType, 
+    setPrice, 
+    setTime, 
+    setDownpayment} = props;
 
 
   useEffect(() => {
     const tabsContainer = document.querySelector(`.services__tabs`);
     const tabs = tabsContainer.querySelectorAll(`.services__tabs-item`);
     const services = document.querySelectorAll(`.services__item`);
+    const slides = document.querySelectorAll('.slider__item');
 
     services.forEach((element) => {
       if (element.dataset.id !== currentService) {
+        element.style.display = `none`;
+      } else {
+        element.style.display = `block` ;
+      }  
+    });
+    
+    slides.forEach((element) => {
+      if (Number(element.id) !== currentSlide) {
         element.style.display = `none`;
       } else {
         element.style.display = `block` ;
@@ -33,6 +51,12 @@ const Main = (props) => {
         element.classList.add('services__tabs-item--active');
       }  
     });
+
+    if (creditType !== 'Выберите цель кредитования') {
+      cleanAllCreditInputs();
+      closeSelect();
+    }
+    getNewBullet(currentSlide);
   })
 
   const handleSectionButtonChange = (evt) => {
@@ -44,6 +68,7 @@ const Main = (props) => {
     setPrice(0);
     setTime(0);
     setDownpayment(0);
+    setOfferData({});
     if (creditType !== 'Выберите цель кредитования') {
       cleanAllCreditInputs();
     }
@@ -54,8 +79,8 @@ const Main = (props) => {
   return (
     <main className="page__main">
       <h1 className="visually-hidden">Лига Банк</h1>
-      <Slider/>
-      <Services onServiceButtonChange={handleSectionButtonChange}/>
+      <Slider setNewSlide={setNewSlide} currentSlide={currentSlide}/>
+      <Services onServiceButtonChange={handleSectionButtonChange} currentService={currentService} setNewService={setNewService} />
       <Calculator onCreditTypeButtonClick={handleCreditTypeClick} setCreditType={setCreditType}/>
       <Map/>
     </main>
@@ -64,17 +89,20 @@ const Main = (props) => {
 
 Main.propTypes = {
   currentService: PropTypes.string.isRequired,
+  currentSlide: PropTypes.number.isRequired,
   creditType: PropTypes.string.isRequired,
   setNewService: PropTypes.func.isRequired,
   setCreditType: PropTypes.func.isRequired,
   setPrice: PropTypes.func.isRequired,
   setTime: PropTypes.func.isRequired,
   setDownpayment: PropTypes.func.isRequired,
+  setOfferData: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
   return {
     currentService: state.currentService,
+    currentSlide: state.currentSlide,
     creditType: state.creditType
   };
 };
@@ -82,6 +110,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   setNewService(currentService) {
     dispatch(ActionCreator.setNewService(currentService));
+  },
+  setNewSlide(slide) {
+    dispatch(ActionCreator.setNewSlide(slide));
   },
   setCreditType(type) {
     dispatch(ActionCreator.setCreditType(type));
@@ -94,6 +125,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setDownpayment(downpayment) {
     dispatch(ActionCreator.setDownpayment(downpayment));
+  },
+  setOfferData(data) {
+    dispatch(ActionCreator.setOfferData(data));
   },
 });
 

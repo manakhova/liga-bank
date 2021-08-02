@@ -1,7 +1,9 @@
 export const ActionType = {
     CHANGE_SERVICE: `changeService`,
+    CHANGE_SLIDE: `changeSlide`,
     SET_LOGIN_DATA: `setLoginData`,
     SET_USER_DATA: `setUserData`,
+    SET_OFFER_DATA: `setOfferData`,
     SET_CREDIT_TYPE: `setCreditType`,
     SET_PRICE: `setPrice`,
     SET_TIME: `setTime`,
@@ -15,12 +17,20 @@ export const ActionCreator = {
     type: ActionType.CHANGE_SERVICE,
     payload: service
   }),
+  setNewSlide: (slide) => ({
+    type: ActionType.CHANGE_SLIDE,
+    payload: slide
+  }),
   setLoginData: (data) => ({
     type: ActionType.SET_LOGIN_DATA,
     payload: data
   }),
   setUserData: (data) => ({
     type: ActionType.SET_USER_DATA,
+    payload: data
+  }),
+  setOfferData: (data) => ({
+    type: ActionType.SET_OFFER_DATA,
     payload: data
   }),
   setCreditType: (credit) => ({

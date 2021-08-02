@@ -1,8 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {useSwipeable} from "react-swipeable";
 
 const Services = (props) => {
-  const {onServiceButtonChange} = props;
+  const {onServiceButtonChange, currentService, setNewService} = props;
+
+  const getNextService = () => {
+    const servicesId = Array.from(document.querySelectorAll('.services__item')).map(elem => elem.dataset.id);
+
+    if (currentService === servicesId[servicesId.length - 1]) {
+      return;
+    } else {
+      setNewService(servicesId[servicesId.indexOf(currentService) + 1]);
+    } 
+  };
+
+  const getPrevService = () => {
+    const servicesId = Array.from(document.querySelectorAll('.services__item')).map(elem => elem.dataset.id);
+
+    if (currentService === servicesId[0]) {
+      return;
+    } else {
+      setNewService(servicesId[servicesId.indexOf(currentService) - 1]);
+    } 
+  };
+
+  const handlers = useSwipeable({
+    onSwipedLeft: getNextService,
+    onSwipedRight: getPrevService
+  });
 
   return (
     <section className="services">
@@ -38,7 +64,7 @@ const Services = (props) => {
         </button>
       </div>
       <div className="services__container">
-        <div className="services__slider">
+        <div className="services__slider" {...handlers}>
           <article className="services__item" data-id="bank">
             <h3 className="services__item-title">
               Вклады Лига Банка – это выгодная <br/> инвестиция в свое будущее

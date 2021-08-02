@@ -7,9 +7,10 @@ import Warning from './warning';
 import Offer from './offer';
 import Total from './total';
 import {CreditType, mortgage, carLoan, MIN_MORTGAGE, MIN_CAR_LOAN} from '../const';
+import {closeSelect} from '../utils';
 
 const Calculator = (props) => {
-  const {creditType, creditData, onCreditTypeButtonClick} = props;
+  const {creditType, creditData, offerData, onCreditTypeButtonClick} = props;
 
   const getCreditSettingTemplate = (creditType) => {
     switch (creditType) {
@@ -32,13 +33,13 @@ const Calculator = (props) => {
           if (creditAmount < MIN_MORTGAGE) {
             return <Warning credit={mortgage} creditType={creditType}/>;
           } else {
-            return <Offer creditType={creditType} creditData={creditData}/>;
+            return <Offer creditType={creditType} creditData={creditData} offerData={offerData}/>;
           };
         case CreditType.CAR_LOAN:
           if (creditAmount < MIN_CAR_LOAN) {
             return <Warning credit={carLoan} creditType={creditType}/>;
           } else {
-            return <Offer creditType={creditType} creditData={creditData}/>;
+            return <Offer creditType={creditType} creditData={creditData} offerData={offerData}/>;
           };
         default:
           return null;
@@ -54,8 +55,7 @@ const Calculator = (props) => {
       selectList.style.display = `block`;
       select.classList.add(`calculator__form-select--open`);
     } else {
-      selectList.style.display = `none`;
-      select.classList.remove(`calculator__form-select--open`);
+      closeSelect();
     }
   };
 
@@ -88,35 +88,26 @@ const Calculator = (props) => {
 
 Calculator.propTypes = {
   creditType: PropTypes.string.isRequired,
+  offerData: PropTypes.object.isRequired,
   creditData: PropTypes.shape({
     price: PropTypes.number ,
     downPayment: PropTypes.number,
     time: PropTypes.number,
-  }),
-  setUserData: PropTypes.func.isRequired,
-  setNumber: PropTypes.func.isRequired
+  })
 };
 
 const mapStateToProps = (state) => {
   return {
     creditType: state.creditType,
-    creditData: state.creditData
+    creditData: state.creditData,
+    offerData: state.offerData
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
   setCreditType(creditType) {
     dispatch(ActionCreator.setCreditType(creditType));
-  },
-  setCreditData(creditData) {
-    dispatch(ActionCreator.setCreditData(creditData));
-  },
-  setUserData(userData) {
-    dispatch(ActionCreator.setUserData(userData));
-  },
-  setNumber(number) {
-    dispatch(ActionCreator.setNumber(number));
-  },
+  }
 });
 
 export {Calculator};

@@ -3,9 +3,10 @@ import {CreditType} from '../const';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../store/action';
+import {closeKeydownPopup, getTime, closeSelect} from '../utils'
 
 const Total = (props) => {
-  const {creditType, creditData, setUserData, setNumber, setCreditType} = props;
+  const {creditType, creditData, setUserData, setNumber, setCreditType, setPrice, setDownpayment, setTime} = props;
   const {price, downPayment, time, number} = creditData;
 
   const handleTotalButtonClick = (evt) => {
@@ -24,9 +25,14 @@ const Total = (props) => {
     localStorage['userData'] = JSON.stringify(userData);
     setUserData(userData);
     setNumber(number + 1);
+    setPrice(0);
+    setDownpayment(0);
+    setTime(0);
     setCreditType('Выберите цель кредитования');
+    closeSelect();
 
     document.querySelector('.popup').style.display = 'block';
+    document.addEventListener('keydown', closeKeydownPopup);
   };
 
   return (
@@ -51,7 +57,7 @@ const Total = (props) => {
         </li>
         <li className="calculator__form-total-item">
           <span>Срок кредитования</span>
-          <span>{time} лет</span>
+          <span>{getTime(time)}</span>
         </li>
       </ul>
       <div className="calculator__form-total-user">
@@ -65,6 +71,7 @@ const Total = (props) => {
 };
 
 Total.propTypes = {
+  userData: PropTypes.object.isRequired,
   creditType: PropTypes.string.isRequired,
   creditData: PropTypes.shape({
     price: PropTypes.number ,
@@ -72,13 +79,17 @@ Total.propTypes = {
     time: PropTypes.number,
   }),
   setUserData: PropTypes.func.isRequired,
-  setNumber: PropTypes.func.isRequired
+  setNumber: PropTypes.func.isRequired,
+  setPrice: PropTypes.func.isRequired,
+  setTime: PropTypes.func.isRequired,
+  setDownpayment: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
   return {
     creditType: state.creditType,
-    creditData: state.creditData
+    creditData: state.creditData,
+    userData: state.userData
   };
 };
 
@@ -94,6 +105,15 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setNumber(number) {
     dispatch(ActionCreator.setNumber(number));
+  },
+  setPrice(price) {
+    dispatch(ActionCreator.setPrice(price));
+  },
+  setTime(time) {
+    dispatch(ActionCreator.setTime(time));
+  },
+  setDownpayment(downpayment) {
+    dispatch(ActionCreator.setDownpayment(downpayment));
   },
 });
 

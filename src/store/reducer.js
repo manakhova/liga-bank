@@ -1,6 +1,7 @@
 import {ActionType} from './action';
 
 const initialState = {
+  currentSlide: 1,
   currentService: `bank`,
   loginData: {},
   creditType: 'Выберите цель кредитования',
@@ -10,6 +11,7 @@ const initialState = {
     time: 0,
     number: 1
   },
+  offerData: {},
   userData: {}
 };
 
@@ -20,6 +22,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         currentService: action.payload
     };
+    case ActionType.CHANGE_SLIDE:
+      return {
+        ...state,
+        currentSlide: action.payload
+    };
     case ActionType.SET_LOGIN_DATA:
       return {
         ...state,
@@ -29,6 +36,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         userData: action.payload
+    };
+    case ActionType.SET_OFFER_DATA:
+      return {
+        ...state,
+        offerData: action.payload
     };
     case ActionType.SET_CREDIT_TYPE:
       return {

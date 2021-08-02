@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../store/action';
 import {CreditType} from '../const';
+import {getTime} from '../utils';
 
 const CreditSettings = (props) => {
-  const {credit, creditType, creditData, setPrice, setTime, setDownpayment} = props;
+  const {credit, creditType, creditData, setPrice, setTime, setDownpayment, offerData, setOfferData} = props;
   const {maxPrice, minPrice, priсeStep, minDownPaymentPercent, percentStep, minTime,  maxTime} = credit;
 
   const handleCalcButtonClick = (evt) => {
@@ -54,51 +55,114 @@ const CreditSettings = (props) => {
   const handlePriceInput = (evt) => {
     const price = document.querySelector('.calculator__form-container label');
     const downpayment = document.querySelector('#contribution');
+    const downpaymentRange = document.querySelector('#downpayment');
+    const downpaymentRangeValue = document.querySelector('#downpayment + span');
 
     if (Number(evt.target.value) < minPrice || Number(evt.target.value) > maxPrice ) {
       price.classList.add('calculator--error');
       setPrice(0);
       setDownpayment(0);
       downpayment.value = null;
+      downpaymentRange.value = null;
       downpayment.disabled = true;
+      downpaymentRange.disabled = true;
     } else {
       price.classList.remove('calculator--error');
       setPrice(Number(evt.target.value));
       downpayment.value = Number(evt.target.value * minDownPaymentPercent);
+      downpaymentRange.value = minDownPaymentPercent * 100;
+      downpaymentRangeValue.innerHTML = `${minDownPaymentPercent * 100}%`
       setDownpayment(Number(downpayment.value));
       downpayment.disabled = false;
+      downpaymentRange.disabled = false;
     }
   };
 
   const handleDownpaymentInput = (evt) => {
     const downpayment = document.querySelector('#contribution');
+    const downpaymentRange = document.querySelector('#downpayment');
+    const downpaymentRangeValue = document.querySelector('#downpayment + span');
     const label = document.querySelector('.calculator__form-container label:nth-of-type(2)');
+
+    const currentPercent = Math.round((evt.target.value / creditData.price) * 100);
 
     if (downpayment.value < (creditData.price * minDownPaymentPercent)) {
       downpayment.value = creditData.price * minDownPaymentPercent;
+      downpaymentRange.value = minDownPaymentPercent * 100;
+      downpaymentRangeValue.innerHTML = minDownPaymentPercent * 100;
       setDownpayment(Number(downpayment.value));
     } else if (downpayment.value > creditData.price) {
       label.classList.add('calculator--error');
       setDownpayment(0);
+      downpaymentRange.value = null;
     } else {
       setDownpayment(Number(evt.target.value));
+      downpaymentRange.value = currentPercent;
+      downpaymentRangeValue.innerHTML = currentPercent;
       label.classList.remove('calculator--error');
     }
   };
 
   const handleTimeInput = (evt) => {
     const time = document.querySelector('#time');
+    const timeRange = document.querySelector('#time-range');
     const label = document.querySelector('.calculator__form-container label:nth-of-type(3)');
 
-    if (time.value < minTime || time.value > maxTime) {
-      label.classList.add('calculator--error');
-      setTime(0);
-    } else {
+    if (time.value < minTime) {
+      time.value = minTime;
+      setTime(time.value);
+    } else if (time.value > maxTime) {
+      time.value = maxTime;
+      setTime(time.value);
+    } else{
       label.classList.remove('calculator--error');
+      timeRange.value = evt.target.value;
       setTime(Number(evt.target.value));
     }
   };
 
+  const handleTimeRange = (evt) => {
+    const time = document.querySelector('#time');
+
+    time.value = evt.target.value;
+    setTime(Number(evt.target.value));
+  };
+
+  const handleDownPaymentRange = (evt) => {
+    const downpayment = document.querySelector('#contribution');
+    const downpaymentRange = document.querySelector('#downpayment');
+    const downpaymentRangeValue = document.querySelector('#downpayment + span');
+    const currentDownpayment = Math.round((evt.target.value / 100) * creditData.price)
+
+    downpayment.value = currentDownpayment;
+    downpaymentRange.value = evt.target.value ;
+    downpaymentRangeValue.innerHTML = `${evt.target.value}%`;
+    setDownpayment(Number(currentDownpayment));
+  };
+
+  const handleCheckboxChange = (evt) => {
+    if (evt.target.checked) {
+      setOfferData({...offerData, checkbox: true});
+    } else {
+      setOfferData({...offerData, checkbox: false});
+    }
+  };
+
+  const handleCheckboxKaskoChange = (evt) => {
+    if (evt.target.checked) {
+      setOfferData({...offerData, checkboxKASKO: true});
+    } else {
+      setOfferData({...offerData, checkboxKASKO: false});
+    }
+  };
+
+  const handleCheckboxLifeInsChange = (evt) => {
+    if (evt.target.checked) {
+      setOfferData({...offerData, checkboxLifeIns: true});
+    } else {
+      setOfferData({...offerData, checkboxLifeIns: false});
+    }
+  };
 
   return (
     <div className="calculator__form-container">
@@ -120,30 +184,31 @@ const CreditSettings = (props) => {
         <input className="calculator__input" id="contribution" type="number" onInput={handleDownpaymentInput}
         min={minPrice * minDownPaymentPercent} max={creditData.price} placeholder={`${minPrice * minDownPaymentPercent} рублей`} disabled/>
         <div className="calculator__range">
-          <input id="downpayment" type="range" step={percentStep} defaultValue={minDownPaymentPercent * 100} min={minDownPaymentPercent * 100} max="100"/>
+          <input id="downpayment" type="range" step={percentStep} defaultValue={minDownPaymentPercent * 100} 
+          min={minDownPaymentPercent * 100} max="100" onChange={handleDownPaymentRange} disabled/>
           <span>{minDownPaymentPercent * 100}%</span>
         </div>
 
         <label htmlFor="time">Срок кредитования</label>
         <input className="calculator__input" id="time" type="number" onInput={handleTimeInput}
-        min={minTime} max={maxTime} placeholder={`${minTime} лет`}/>
+        min={minTime} max={maxTime} placeholder={getTime(minTime)}/>
         <div className="calculator__range">
-          <input type="range" step="1" min={minTime} max={maxTime} defaultValue={minTime}/>
+          <input id="time-range" type="range" step="1" min={minTime} max={maxTime} defaultValue={minTime} onChange={handleTimeRange}/>
           <div>
-            <span>{minTime} лет</span>
-            <span>{maxTime} лет</span>
+            <span>{getTime(minTime)}</span>
+            <span>{getTime(maxTime)}</span>
           </div>
         </div>  
         {creditType === CreditType.MORTGAGE ?
           <div className="calculator__checkbox">
-            <input id="maternal-capital" type="checkbox"/>
+            <input id="maternal-capital" type="checkbox" onChange={handleCheckboxChange}/>
             <label htmlFor="maternal-capital">Использовать материнский капитал</label>
          </div> :
           <div className="calculator__checkbox">
-            <input id="kasko" type="checkbox"/>
+            <input id="kasko" type="checkbox" onChange={handleCheckboxKaskoChange}/>
             <label htmlFor="kasko">Оформить КАСКО в нашем банке</label>
             <br/>
-            <input id="life-insurance" type="checkbox"/>
+            <input id="life-insurance" type="checkbox" onChange={handleCheckboxLifeInsChange}/>
             <label htmlFor="life-insurance">Оформить Страхование жизни в нашем банке</label>
          </div>
         } 
@@ -155,15 +220,18 @@ const CreditSettings = (props) => {
 CreditSettings.propTypes = {
   creditType: PropTypes.string.isRequired,
   creditData: PropTypes.object.isRequired,
+  offerData: PropTypes.object.isRequired,
   setPrice: PropTypes.func.isRequired,
   setTime: PropTypes.func.isRequired,
   setDownpayment: PropTypes.func.isRequired,
+  setOfferData: PropTypes.func.isRequired,
   };
   
 const mapStateToProps = (state) => {
   return {
     creditType: state.creditType,
-    creditData: state.creditData
+    creditData: state.creditData,
+    offerData: state.offerData
   };
 };
   
@@ -179,6 +247,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setDownpayment(downpayment) {
     dispatch(ActionCreator.setDownpayment(downpayment));
+  },
+  setOfferData(data) {
+    dispatch(ActionCreator.setOfferData(data));
   },
 });
   

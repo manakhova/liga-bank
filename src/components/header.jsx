@@ -1,5 +1,5 @@
 import React from 'react';
-import {closeKeydownPopup, openMenu, closeMenu} from '../utils'
+import {closeKeydownModal, openMenu, closeMenu} from '../utils'
 
 const Header = () => {
 
@@ -7,7 +7,7 @@ const Header = () => {
     const modal = document.querySelector(`.modal`);
     modal.style.display = `block`;
     modal.querySelector('#login').focus();
-    document.addEventListener('keydown', closeKeydownPopup);
+    document.addEventListener('keydown', closeKeydownModal);
   };
 
   const handleOpenMenuButtonClick = () => {

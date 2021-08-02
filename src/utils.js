@@ -1,10 +1,13 @@
+import {mortgage} from './const';
+
 const cleanAllInputs = () => {
   document.querySelector('#login').value = null;
   document.querySelector('#password').value = null;
 };
 
 export const cleanAllCreditInputs = () => {
-  const creditCalculator = document.querySelector('.calculator__form-container')
+  const creditCalculator = document.querySelector('.calculator__form-container');
+
   creditCalculator.querySelectorAll('input').forEach((elem) => {
     elem.value = null;
   });
@@ -18,6 +21,14 @@ export const cleanAllUserInputs = () => {
   total.querySelectorAll('input').forEach((elem) => {
     elem.value = null;
   });
+};
+
+export const closeSelect = () => {
+  const selectList = document.querySelector(`.calculator__form-type-options`);
+  const select = document.querySelector(`.calculator__form-select`);
+
+  selectList.style.display = `none`;
+  select.classList.remove(`calculator__form-select--open`);
 };
 
 export const closeModal = () => {
@@ -45,13 +56,17 @@ export const closeKeydownPopup = (evt) => {
 export const closePopup = () => {
   const popup = document.querySelector('.popup');
   const total = document.querySelector('#total');
+  const selectList = document.querySelector(`.calculator__form-type-options`);
+  const select = document.querySelector(`.calculator__form-select`);
 
   cleanAllUserInputs();
 
   popup.style.display = `none`;
   total.style.display = `none`;
   document.removeEventListener('keydown', closeKeydownPopup);
-}
+  selectList.style.display = `none`;
+  select.classList.remove(`calculator__form-select--open`);
+};
 
 export const togglePassword = () => {
   const password = document.querySelector('#password');
@@ -74,10 +89,12 @@ export const closeMenu = () => {
   document.querySelector('.authorization').classList.remove('authorization--open');
 };
 
-export const getCreditAmount = (price, downPayment) => {
-  //const checkbox = document.querySelector('#maternal-capital');
-  
-  return price - downPayment;
+export const getCreditAmount = (price, downPayment, checkbox) => {
+  if (checkbox) {
+    return price - downPayment - mortgage.maternalCapital;
+  } else {
+    return price - downPayment;
+  }
 };
 
 export const getMortgageRate = (credit, price, downPayment) => {
@@ -90,16 +107,50 @@ export const getMortgageRate = (credit, price, downPayment) => {
   }
 };
 
-export const getCarLoanRate = (credit, price) => {
-  
-  if (price < credit.breakpointPrice) {
-    return credit.maxInterestRate * 100;
+export const getCarLoanRate = (credit, price, checkbox1, checkbox2) => {
+  if (checkbox1 !== checkbox2) {
+    return credit.withOneInsuranceRate * 100;
+  } else if (checkbox1 && checkbox2) {
+    return (credit.withBothInsuranceRate * 100).toFixed(1);
   } else {
-    return credit.minInterestRate * 100;
-  }
-}
+    if (price < credit.breakpointPrice) {
+      return credit.maxInterestRate * 100;
+    } else {
+      return credit.minInterestRate * 100;
+    }
+  } 
+};
 
 export const getMonthlyPayment = (creditAmount, interestRate, time) => {
-  return 
+  const monthCount = time * 12;
+  const monthlyRate = Number(((interestRate / 100) / 12).toFixed(5));
+  
+  return Math.round((creditAmount * monthlyRate) / (1 - (1 / Math.pow(1 + monthlyRate, monthCount))));
+};
+
+export const getRequiredIncome = (monthlyPayment) => {
+  return Math.round((monthlyPayment * 100) / 45); 
+};
+
+export const getTime = (time) => {
+  if (time === 1 || time === 21) {
+    return `${time} год`;
+  } else if (time === 2 || time === 3 || time === 4 || time === 22 || time === 23 || time === 24) {
+    return `${time} года`;
+  } else {
+    return `${time} лет`;
+  }
+};
+
+export const getNewBullet = (currentSlide) => {
+  const bullets = document.querySelectorAll('.bullets__item');
+
+  bullets.forEach((element) => {
+    if (Number(element.dataset.id) === currentSlide) {
+      element.classList.add('bullets__item--active');
+    } else {
+      element.classList.remove('bullets__item--active');
+    }  
+  });
 };
   
