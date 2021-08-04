@@ -1,7 +1,7 @@
 import {ActionType} from './action';
 
 const initialState = {
-  currentSlide: 1,
+  //currentSlide: 1,
   currentService: `bank`,
   loginData: {},
   creditType: 'Выберите цель кредитования',
@@ -60,7 +60,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         creditData: {
           ...state.creditData,
-          downPayment: action.payload
+          downPayment: Math.round(action.payload)
         }
     };
     case ActionType.SET_TIME:

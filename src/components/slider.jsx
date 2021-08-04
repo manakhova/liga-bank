@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {useSwipeable} from "react-swipeable";
 import {getNewBullet} from '../utils';
 
-const Slider = (props) => {
-  const {currentSlide, setNewSlide} = props;
+const Slider = () => {
+  const [currentSlide, setNewSlide] = useState(1);
+
+  useEffect(() => {
+    const slides = document.querySelectorAll('.slider__item');
+    slides.forEach((element) => {
+      if (Number(element.id) !== currentSlide) {
+        element.style.display = `none`;
+      } else {
+        element.style.display = `block` ;
+      }  
+    });
+  })
 
   const getNextSlide = () => {
     const lastSlideId = Number(document.querySelector('.slider__item:last-of-type').id);
@@ -27,14 +38,14 @@ const Slider = (props) => {
     } 
   };
 
-  // let timer = 0;
-  // const makeTimer = () => {
-  //   clearTimeout(timer)
-  //   timer = setTimeout(function(){
-  //     getNextSlide();
-  //   }, 4000);
-  // };
-  // makeTimer();
+  let timer = 0;
+  const makeTimer = () => {
+    clearTimeout(timer)
+    timer = setTimeout(function(){
+      getNextSlide();
+    }, 4000);
+  };
+  makeTimer();
 
 
   const handlers = useSwipeable({

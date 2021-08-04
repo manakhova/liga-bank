@@ -49,28 +49,28 @@ const Footer = () => {
             <h3 className="visually-hidden">Соцсети</h3>
             <ul className="social__list">
               <li className="social__item social__item--facebook">
-                <a className="social__link" href="/">
+                <a className="social__link" href="https://ru-ru.facebook.com/">
                   <svg className="social__link-icon" width="9" height="16">
                     <use xlinkHref="#facebook"></use>
                   </svg>
                 </a>
               </li>
               <li className="social__item social__item--instagram">
-                <a className="social__link" href="/">
+                <a className="social__link" href="https://www.instagram.com/?hl=ru">
                   <svg className="social__link-icon" width="16" height="16">
                     <use xlinkHref="#instagram"></use>
                   </svg>
                 </a>
               </li>
               <li className="social__item social__item--twitter">
-                <a className="social__link" href="/">
+                <a className="social__link" href="https://twitter.com/?lang=ru">
                   <svg className="social__link-icon" width="16" height="13">
                     <use xlinkHref="#twitter"></use>
                   </svg>
                 </a>
               </li>
               <li className="social__item social__item--yuotube">
-                <a className="social__link" href="/">
+                <a className="social__link" href="https://www.youtube.com/">
                   <svg className="social__link-icon" width="16" height="13">
                     <use xlinkHref="#youtube"></use>
                   </svg>

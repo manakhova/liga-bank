@@ -9,88 +9,83 @@ const CreditSettings = (props) => {
   const {credit, creditType, creditData, setPrice, setTime, setDownpayment, offerData, setOfferData} = props;
   const {maxPrice, minPrice, priсeStep, minDownPaymentPercent, percentStep, minTime,  maxTime} = credit;
 
+  const downpayment = document.querySelector('#contribution');
+  const downpaymentRange = document.querySelector('#downpayment');
+  const downpaymentRangeValue = document.querySelector('#downpayment + span');
+
+  const setNewDownpayment = (price) => {
+    downpayment.value = Math.round(price * minDownPaymentPercent);
+    setDownpayment(Number(downpayment.value));
+    downpayment.disabled = false;
+    downpaymentRange.value = minDownPaymentPercent * 100;
+    downpaymentRange.disabled = false;
+    downpaymentRangeValue.innerHTML = `${minDownPaymentPercent * 100}%`;
+  };
+
+  const resetDownpayment = () => {
+    const downpayment = document.querySelector('#contribution');
+    const downpaymentRange = document.querySelector('#downpayment');
+
+    setDownpayment(0);
+    downpayment.value = null;
+    downpayment.disabled = true;
+
+    if (downpaymentRange) {
+      downpaymentRange.value = null;
+      downpaymentRange.disabled = true;
+    };
+  };
+
+  const resetPrice = (label) => {
+    label.classList.add('calculator--error');
+    setPrice(0);
+    resetDownpayment();  
+  };
+
+  const setNewPrice = (label, price) => {
+    label.classList.remove('calculator--error');
+    setPrice(Number(price.value));
+    setNewDownpayment(price.value);
+  };
+
+  const getInputValue = (currentValue, label, price) => {
+    price.value = currentValue;
+    if (currentValue < minPrice || currentValue > maxPrice) {
+      resetPrice(label);
+    } else {
+      setNewPrice(label, price);  
+    }
+  };
+
   const handleCalcButtonClick = (evt) => {
     const price = document.querySelector('.calculator__input');
     const label = document.querySelector('.calculator__form-container label');
     const currentValueMin = price.value - priсeStep;
     const currentValuePlus = Number(price.value) + priсeStep;
-    const downpayment = document.querySelector('#contribution');
 
-    // вынести в utils
     if (evt.target.id === 'minus') {
-      if (currentValueMin < minPrice || currentValueMin > maxPrice) {
-        price.value = currentValueMin;
-        label.classList.add('calculator--error');
-        setPrice(0);
-        setDownpayment(0);
-        downpayment.value = null;
-        downpayment.disabled = true;
-      } else {
-        label.classList.remove('calculator--error');
-        price.value = currentValueMin;
-        setPrice(Number(price.value));
-        downpayment.value = price.value * minDownPaymentPercent;
-        setDownpayment(Number(downpayment.value));
-        downpayment.disabled = false;
-      }
+      getInputValue(currentValueMin, label, price);
     } else {
-      if (currentValuePlus > maxPrice || currentValuePlus < minPrice) {
-        label.classList.add('calculator--error');
-        price.value = currentValuePlus;
-        setPrice(0);
-        setDownpayment(0);
-        downpayment.value = null;
-        downpayment.disabled = true;
-      } else {
-        label.classList.remove('calculator--error');
-        price.value = currentValuePlus;
-        setPrice(Number(price.value));
-        downpayment.value = price.value * minDownPaymentPercent;
-        setDownpayment(Number(downpayment.value));
-        downpayment.disabled = false;
-      }
+      getInputValue(currentValuePlus, label, price);
     }
   }
 
   const handlePriceInput = (evt) => {
     const price = document.querySelector('.calculator__form-container label');
-    const downpayment = document.querySelector('#contribution');
-    const downpaymentRange = document.querySelector('#downpayment');
-    const downpaymentRangeValue = document.querySelector('#downpayment + span');
 
     if (Number(evt.target.value) < minPrice || Number(evt.target.value) > maxPrice ) {
-      price.classList.add('calculator--error');
-      setPrice(0);
-      setDownpayment(0);
-      downpayment.value = null;
-      downpaymentRange.value = null;
-      downpayment.disabled = true;
-      downpaymentRange.disabled = true;
+      resetPrice(price);
     } else {
-      price.classList.remove('calculator--error');
-      setPrice(Number(evt.target.value));
-      downpayment.value = Number(evt.target.value * minDownPaymentPercent);
-      downpaymentRange.value = minDownPaymentPercent * 100;
-      downpaymentRangeValue.innerHTML = `${minDownPaymentPercent * 100}%`
-      setDownpayment(Number(downpayment.value));
-      downpayment.disabled = false;
-      downpaymentRange.disabled = false;
+      setNewPrice(price, evt.target);
     }
   };
 
   const handleDownpaymentInput = (evt) => {
-    const downpayment = document.querySelector('#contribution');
-    const downpaymentRange = document.querySelector('#downpayment');
-    const downpaymentRangeValue = document.querySelector('#downpayment + span');
     const label = document.querySelector('.calculator__form-container label:nth-of-type(2)');
-
     const currentPercent = Math.round((evt.target.value / creditData.price) * 100);
 
     if (downpayment.value < (creditData.price * minDownPaymentPercent)) {
-      downpayment.value = creditData.price * minDownPaymentPercent;
-      downpaymentRange.value = minDownPaymentPercent * 100;
-      downpaymentRangeValue.innerHTML = minDownPaymentPercent * 100;
-      setDownpayment(Number(downpayment.value));
+      setNewDownpayment(creditData.price);
     } else if (downpayment.value > creditData.price) {
       label.classList.add('calculator--error');
       setDownpayment(0);
@@ -129,9 +124,6 @@ const CreditSettings = (props) => {
   };
 
   const handleDownPaymentRange = (evt) => {
-    const downpayment = document.querySelector('#contribution');
-    const downpaymentRange = document.querySelector('#downpayment');
-    const downpaymentRangeValue = document.querySelector('#downpayment + span');
     const currentDownpayment = Math.round((evt.target.value / 100) * creditData.price)
 
     downpayment.value = currentDownpayment;

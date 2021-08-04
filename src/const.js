@@ -3,8 +3,33 @@ export const CreditType = {
   CAR_LOAN: "Автомобильное кредитование"
 };
 
+export const SHAKE_ANIMATION_TIMEOUT = 600;
+
 export const MIN_MORTGAGE = 500000;
 export const MIN_CAR_LOAN = 200000;
+
+export const coords = [
+  {
+    lat: 55.751244, 
+    lng: 37.618423
+  },
+  {
+    lat: 51.592365, 
+    lng: 45.960804
+  },
+  {
+    lat: 55.796391, 
+    lng: 49.108891
+  },
+  {
+    lat: 57.161297, 
+    lng: 65.525017
+  },
+  {
+    lat: 51.20487, 
+    lng: 58.56685
+  }
+];
 
 export const mortgage = {
   minPrice:  1200000,

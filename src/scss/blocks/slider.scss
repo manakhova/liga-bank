@@ -8,7 +8,7 @@
 
 .slider__item {
   background-color: $basic-blue;
-  background-image: url("../img/blue-background.png");
+  background-image: url("../img/blue-background.jpg");
   padding: 15px;
   height: 226px;
   box-sizing: border-box;
@@ -28,7 +28,7 @@
 
 .slider__item:nth-of-type(2){
   background-color: $basic-grey;
-  background-image: url("../img/man.png");
+  background-image: url("../img/man.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: 65%;
@@ -50,7 +50,7 @@
 
 .slider__item:nth-of-type(3){
   background-color: $basic-grey;
-  background-image: url("../img/girl.png");
+  background-image: url("../img/girl.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: 63%;

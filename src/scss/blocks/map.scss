@@ -37,13 +37,18 @@
   }
 }
 
-.map__img { 
+.map__container { 
   height: 395px;
-  background-image: url("../img/map.png");
+  background-image: url("../img/map.jpg");
   background-position: right;
   
   //Tablet
   @media (min-width: 768px) {
     height: 462px;
   }
+}
+
+.map__pin {
+  margin-top: -32px;
+  margin-left: -14px;
 }

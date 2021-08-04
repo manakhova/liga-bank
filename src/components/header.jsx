@@ -21,21 +21,19 @@ const Header = () => {
   return (
     <header className="page__header page-header">
       <div className="page-header__container">
-      {/* page-header__container--open */}
         <div className="page-header__main-container">
           <div className="page-header__logo-container">
-            <button className="page-header__open-button" type="button"
+            <button className="page-header__open-button" type="button" aria-label="Open modal button"
             onClick={handleOpenMenuButtonClick}></button>
             <a href="index.html" className="page-header__logo">
               <img className="page-header__logo-image" src="./img/logo.svg" alt="Лига-Банк"/>
             </a>
           </div>
-          <button className="page-header__close-button" type="button"
+          <button className="page-header__close-button" type="button" aria-label="Close button"
           onClick={handleCloseMenuButtonClick}></button>
         </div>
         <nav className="page-header__navigation">
           <ul className="navigation navigation--header"> 
-          {/* navigation--open */}
             <li className="navigation__item">
               <a className="navigation__link" href="/">Услуги</a>
             </li>
@@ -50,8 +48,7 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <button className="page-header__authorization authorization" href="/" onClick={handlePopupButtonClick}>
-          {/* authorization--open */}
+        <button className="page-header__authorization authorization" href="/" onClick={handlePopupButtonClick} aria-label="Authorization button">
           <span>Войти в Интернет-банк</span> 
         </button>
       </div>

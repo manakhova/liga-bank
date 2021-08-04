@@ -1,9 +1,30 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {useState, useEffect} from 'react';
 import {useSwipeable} from "react-swipeable";
 
-const Services = (props) => {
-  const {onServiceButtonChange, currentService, setNewService} = props;
+const Services = () => {
+  const [currentService, setNewService] = useState('bank');
+
+  useEffect(() => {
+    const tabsContainer = document.querySelector(`.services__tabs`);
+    const tabs = tabsContainer.querySelectorAll(`.services__tabs-item`);
+    const services = document.querySelectorAll(`.services__item`);
+
+    services.forEach((element) => {
+      if (element.dataset.id !== currentService) {
+        element.style.display = `none`;
+      } else {
+        element.style.display = `block` ;
+      }  
+    });
+    
+    tabs.forEach((element) => {
+      if (element.id !== currentService) {
+        element.classList.remove('services__tabs-item--active');
+      } else {
+        element.classList.add('services__tabs-item--active');
+      }  
+    });
+  })
 
   const getNextService = () => {
     const servicesId = Array.from(document.querySelectorAll('.services__item')).map(elem => elem.dataset.id);
@@ -30,33 +51,37 @@ const Services = (props) => {
     onSwipedRight: getPrevService
   });
 
+  const handleSectionButtonChange = (evt) => {
+    setNewService(`${evt.target.id}`); 
+  };
+
   return (
     <section className="services">
       <h2 className="visually-hidden">Услуги</h2>
       <div className="services__tabs">
         <button type="button" className="services__tabs-item" id="bank"
-          onClick={onServiceButtonChange} onFocus={onServiceButtonChange}>
+          onClick={handleSectionButtonChange} onFocus={handleSectionButtonChange}>
           <svg width="34" height="33">
             <use xlinkHref="#vault"></use>
           </svg>
           Вклады
         </button>
         <button type="button" className="services__tabs-item" id="credit"
-          onClick={onServiceButtonChange} onFocus={onServiceButtonChange}>
+          onClick={handleSectionButtonChange} onFocus={handleSectionButtonChange}>
           <svg width="34" height="30">
             <use xlinkHref="#cards"></use>
           </svg>
           Кредиты
         </button>
         <button type="button" className="services__tabs-item" id="insurance"
-          onClick={onServiceButtonChange} onFocus={onServiceButtonChange}>
+          onClick={handleSectionButtonChange} onFocus={handleSectionButtonChange}>
           <svg width="28" height="34">
             <use xlinkHref="#security"></use>
           </svg>
           Страхование
         </button>
         <button type="button" className="services__tabs-item" id="online"
-          onClick={onServiceButtonChange} onFocus={onServiceButtonChange}>
+          onClick={handleSectionButtonChange} onFocus={handleSectionButtonChange}>
           <svg width="20" height="34">
             <use xlinkHref="#phone-blue"></use>
           </svg>
@@ -152,10 +177,6 @@ const Services = (props) => {
       </ul>
     </section>
   );
-};
-
-Services.propTypes = {
-  onServiceButtonChange: PropTypes.func.isRequired,
 };
 
 export default Services;

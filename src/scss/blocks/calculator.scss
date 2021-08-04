@@ -615,6 +615,32 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
+  &--required {
+    position: relative;
+
+    &::after {
+      content: 'Пожалуйста, заполните все поля';
+      position: absolute;
+      display: block;
+      bottom: 17px;
+      left: 57px;
+      width: 100%;
+      height: 1px;
+      color: red;
+      font-size: 12px;
+
+      //Tablet
+      @media (min-width: 768px) {
+        left: 234px;
+      }
+
+      //Desktop
+      @media (min-width: 1024px) {
+        left: 223px;
+      }
+    }
+  }
 }
 
 .calculator__form-total-user input {
