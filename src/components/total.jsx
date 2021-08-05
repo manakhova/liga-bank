@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {ActionCreator} from '../store/action';
 import {closeKeydownPopup, getTime, closeSelect} from '../utils';
 import {IMaskInput} from 'react-imask';
-import {SHAKE_ANIMATION_TIMEOUT} from '../const'
+import {SHAKE_ANIMATION_TIMEOUT} from '../const';
 
 const Total = (props) => {
   const {creditType, creditData, setUserData, setNumber, setCreditType, setPrice, setDownpayment, setTime} = props;

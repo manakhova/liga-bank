@@ -20,7 +20,6 @@ const Main = (props) => {
 
   useEffect(() => {
     if (creditType !== 'Выберите цель кредитования') {
-      cleanAllCreditInputs();
       closeSelect();
     }
   })

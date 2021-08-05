@@ -38,11 +38,22 @@
     content: "Некорректное значение";
     position: absolute;
     top: 31px;
-    right: 238px;
+    right: 72px;
+    width: 139px;
     display: block;
     z-index: 1;
     font-size: 12px;
     color: red;
+
+    //Tablet
+    @media (min-width: 768px) {
+      right: 271px;
+    }
+
+    //Desktop
+    @media (min-width: 1024px) {
+      right: 238px;
+    }
   }
 }
 
@@ -118,6 +129,7 @@
   margin: 0;
   margin-top: -4px;
   margin-bottom: 9px;
+  font-size: 16px;
 
   //Tablet
   @media (min-width: 768px) {
@@ -128,7 +140,7 @@
   //Desktop
   @media (min-width: 1024px) {
     font-size: 22px;
-    margin-bottom: 25px;
+    margin-bottom: 23px;
   }
 }
 
@@ -173,7 +185,7 @@
 
   //Tablet
   @media (min-width: 768px) {
-    margin-top: 40px;
+    margin-top: 42px;
   }
 
   //Desktop
@@ -217,11 +229,11 @@
   color: $basic-black;
   opacity: 0.5;
   font-size: 14px;
-  margin-bottom: 33px;
+  margin-bottom: 13px;
 
   //Tablet
   @media (min-width: 768px) {
-    margin-bottom: 38px;
+    margin-bottom: 16px;
   }
 
   //Desktop
@@ -287,7 +299,7 @@
 .calculator__range {
   display: flex;
   flex-direction: column;
-  margin-top: 18px;
+  margin-top: 16px;
   margin-bottom: 8px;
 
   //Tablet
@@ -522,24 +534,24 @@
 
 .calculator__form-button {
   width: 100%;
-  padding: 18px 36px;
+  padding: 15px 36px;
+  text-align: center;
   margin-bottom: 23px;
 
   //Desktop
   @media (min-width: 1024px) {
     font-size: 16px;
-    padding: 17px 36px;
   }
 }
 
 .calculator__form-total {
   display: flex;
   flex-direction: column;
-  margin-top: 45px;
+  margin-top: 49px;
 
   //Tablet
   @media (min-width: 768px) {
-    margin-top: 55px;
+    margin-top: 61px;
   }
 
   //Desktop
@@ -555,10 +567,11 @@
 
 .calculator__form-total .calculator__form-title {
   align-self: center;
+  margin-bottom: 8px;
 
-  //Desktop
-  @media (min-width: 1024px) {
-    margin-bottom: 6px;
+  //Tablet
+  @media (min-width: 768px) {
+    margin-bottom: 17px;
   }
 }
 
@@ -567,6 +580,11 @@
   padding: 0;
   margin: 0;
   margin-top: 30px;
+
+  //Desktop
+  @media (min-width: 1024px) {
+    margin-top: 19px;
+  }
 }
 
 .calculator__form-total-item {
@@ -614,6 +632,11 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    margin-top: 17px;
   }
 
   &--required {

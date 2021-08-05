@@ -18,7 +18,7 @@ const Modal = (props) => {
   const handleLoginButtonClick = (evt) => {
     evt.preventDefault();
 
-    const login = document.querySelector('#login');
+    const login = document.querySelector('#user-login');
     const password = document.querySelector('#password');
 
     const loginData = {
@@ -36,13 +36,13 @@ const Modal = (props) => {
     <div className="modal" style={{display: "none"}}>
       <form className="modal__form" action="https://echo.htmlacademy.ru/" method="post">
         <div className="modal__container">
-          <img className="modal__logo-image" src="./img/logo-modal.svg" alt="Лига-Банк"/>
+          <img className="modal__logo-image" width="150px" height="27px" src="./img/logo-modal.svg" alt="Лига-Банк"/>
           <button className="modal__button modal__button--close" 
           type="button" onClick={handleCloseButtonClick} tabIndex="4"></button>
         </div>
         <div className="modal__form-container">
-          <label className="modal__label" htmlFor="login">Логин</label>
-          <input id="login" className="modal__input" type="email" tabIndex="1" required/>
+          <label className="modal__label" htmlFor="user-login">Логин</label>
+          <input id="user-login" className="modal__input" type="email" tabIndex="1" required/>
 
           <label className="modal__label" htmlFor="password">Пароль</label>
           <input id="password" className="modal__input" type="password" tabIndex="2" required/>

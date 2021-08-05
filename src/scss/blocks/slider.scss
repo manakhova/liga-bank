@@ -8,7 +8,7 @@
 
 .slider__item {
   background-color: $basic-blue;
-  background-image: url("../img/blue-background.jpg");
+  background-image: url("../img/blue-background.webp");
   padding: 15px;
   height: 226px;
   box-sizing: border-box;
@@ -28,7 +28,7 @@
 
 .slider__item:nth-of-type(2){
   background-color: $basic-grey;
-  background-image: url("../img/man.jpg");
+  background-image: url("../img/man.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: 65%;
@@ -50,7 +50,7 @@
 
 .slider__item:nth-of-type(3){
   background-color: $basic-grey;
-  background-image: url("../img/girl.jpg");
+  background-image: url("../img/girl.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: 63%;
@@ -109,21 +109,21 @@
     right: -340px;
     width: 430px;
     height: 262px;
-    background-image: url("../img/black-card.png");
+    background-image: url("../img/black-card.webp");
     background-repeat: no-repeat;
 
     //Tablet
     @media (min-width: 768px) {
       right: -96px;
       top: -42px;
-      background-image: url("../img/bank-cards-tab.png");
+      background-image: url("../img/bank-cards-tab.webp");
     }
 
     //Desktop
     @media (min-width: 1194px) {
       right: -30px;
       top: -62px;
-      background-image: url("../img/bank-cards.png");
+      background-image: url("../img/bank-cards.webp");
     }
   } 
 }

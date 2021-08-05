@@ -21,12 +21,13 @@
 .map__title {
   font-size: 22px;
   padding-left: 15px;
+  margin-top: 23px;
 
   //Tablet
   @media (min-width: 768px) {
     font-size: 32px;
     padding-left: 0;
-    margin-top: 0;
+    margin-top: 5px;
     margin-bottom: 45px;
   }
 
@@ -39,7 +40,7 @@
 
 .map__container { 
   height: 395px;
-  background-image: url("../img/map.jpg");
+  background-image: url("../img/map.webp");
   background-position: right;
   
   //Tablet

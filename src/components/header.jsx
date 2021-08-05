@@ -6,7 +6,7 @@ const Header = () => {
   const handlePopupButtonClick = () => {
     const modal = document.querySelector(`.modal`);
     modal.style.display = `block`;
-    modal.querySelector('#login').focus();
+    modal.querySelector('#user-login').focus();
     document.addEventListener('keydown', closeKeydownModal);
   };
 
@@ -26,7 +26,7 @@ const Header = () => {
             <button className="page-header__open-button" type="button" aria-label="Open modal button"
             onClick={handleOpenMenuButtonClick}></button>
             <a href="index.html" className="page-header__logo">
-              <img className="page-header__logo-image" src="./img/logo.svg" alt="Лига-Банк"/>
+              <img className="page-header__logo-image" width="118px" height="17px" src="./img/logo.svg" alt="Лига-Банк"/>
             </a>
           </div>
           <button className="page-header__close-button" type="button" aria-label="Close button"

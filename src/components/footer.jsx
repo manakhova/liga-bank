@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="page-footer__container">
         <div className="page-footer__main">
           <a href="index.html" className="page-footer__logo">
-            <img className="page-footer__logo-image" src="./img/logo.svg" alt="Лига-Банк"/>
+            <img className="page-footer__logo-image" width="118px" height="17px" src="./img/logo.svg" alt="Лига-Банк"/>
           </a>
           <div className="page-footer__address">
           150015, г. Москва, ул. Московская, д. 32 <br/>
