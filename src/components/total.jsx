@@ -46,6 +46,7 @@ const Total = (props) => {
       closeSelect();
 
       document.querySelector('.popup').style.display = 'block';
+      document.querySelector(`body`).style.overflow = `hidden`;
       document.addEventListener('keydown', closeKeydownPopup);
     }
   };

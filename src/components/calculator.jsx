@@ -26,18 +26,25 @@ const Calculator = (props) => {
 
   const getCreditOfferTemplate = (creditData) => {
     const {price, downPayment, time} = creditData;
-    const creditAmount = price - downPayment;
- 
+
+    const getCreditAmount = () => {
+      if (offerData.checkbox) {
+        return price - downPayment - mortgage.maternalCapital;
+      } else {
+        return price - downPayment;
+      }
+    };
+
     if ((price && downPayment && time) !== 0) {
       switch (creditType) {
         case CreditType.MORTGAGE:
-          if (creditAmount < MIN_MORTGAGE) {
+          if (getCreditAmount() < MIN_MORTGAGE) {
             return <Suspense fallback={<div>Loading...</div>}><Warning credit={mortgage} creditType={creditType}/></Suspense>;
           } else {
             return <Suspense fallback={<div>Loading...</div>}><Offer creditType={creditType} creditData={creditData} offerData={offerData}/></Suspense>;
           };
         case CreditType.CAR_LOAN:
-          if (creditAmount < MIN_CAR_LOAN) {
+          if (getCreditAmount() < MIN_CAR_LOAN) {
             return <Suspense fallback={<div>Loading...</div>}><Warning credit={carLoan} creditType={creditType}/></Suspense>;
           } else {
             return <Suspense fallback={<div>Loading...</div>}><Offer creditType={creditType} creditData={creditData} offerData={offerData}/></Suspense>;

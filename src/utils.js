@@ -37,6 +37,8 @@ export const closeModal = () => {
   cleanAllInputs();
   modal.style.display = `none`;
   document.removeEventListener('keydown', closeKeydownModal);
+  document.querySelector(`body`).style.overflow = `scroll`;
+  document.querySelector('#password').setAttribute('type', 'password');
 };
 
 export const closeKeydownModal = (evt) => {
@@ -66,6 +68,7 @@ export const closePopup = () => {
   document.removeEventListener('keydown', closeKeydownPopup);
   selectList.style.display = `none`;
   select.classList.remove(`calculator__form-select--open`);
+  document.querySelector(`body`).style.overflow = `scroll`;
 };
 
 export const togglePassword = () => {
@@ -81,12 +84,14 @@ export const openMenu = () => {
   document.querySelector('.page-header__container').classList.add('page-header__container--open');
   document.querySelector('.navigation--header').classList.add('navigation--open');
   document.querySelector('.authorization').classList.add('authorization--open');
+  document.querySelector(`body`).style.overflow = `hidden`;
 };
 
 export const closeMenu = () => { 
   document.querySelector('.page-header__container').classList.remove('page-header__container--open');
   document.querySelector('.navigation--header').classList.remove('navigation--open');
   document.querySelector('.authorization').classList.remove('authorization--open');
+  document.querySelector(`body`).style.overflow = `scroll`;
 };
 
 export const getCreditAmount = (price, downPayment, checkbox) => {
@@ -139,6 +144,16 @@ export const getTime = (time) => {
     return `${time} года`;
   } else {
     return `${time} лет`;
+  }
+};
+
+export const getTimeText = (time) => {
+  if (time === 1 || time === 21) {
+    return `год`;
+  } else if (time === 2 || time === 3 || time === 4 || time === 22 || time === 23 || time === 24) {
+    return `года`;
+  } else {
+    return `лет`;
   }
 };
 

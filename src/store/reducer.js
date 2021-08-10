@@ -1,7 +1,6 @@
 import {ActionType} from './action';
 
 const initialState = {
-  //currentSlide: 1,
   currentService: `bank`,
   loginData: {},
   creditType: 'Выберите цель кредитования',
@@ -11,7 +10,9 @@ const initialState = {
     time: 0,
     number: 1
   },
-  offerData: {},
+  offerData: {
+    checkbox: false
+  },
   userData: {}
 };
 

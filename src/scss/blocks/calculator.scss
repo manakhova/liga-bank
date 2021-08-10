@@ -2,6 +2,7 @@
   //Desktop
   @media (min-width: 1024px) {
     max-width: 1170px;
+    width: 90%;
     margin: 0 auto;
   }
 }
@@ -68,6 +69,11 @@
   //Desktop
   @media (min-width: 1024px) {
     padding: 0;
+    width: 95%;
+  }
+
+  @media (min-width: 1070px) {
+    width: 100%;
   }
 }
 
@@ -243,6 +249,7 @@
 }
 
 .calculator__button {
+  cursor: pointer;
   position: relative;
   background-color: transparent;
   border: none;
@@ -297,6 +304,7 @@
 }
 
 .calculator__range {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-top: 16px;
@@ -323,6 +331,30 @@
 .calculator__range span {
   font-size: 14px;
   margin-top: 8px;
+}
+
+.calculator__range .calculator__input-text {
+  position: absolute;
+  top: -65px;
+  right: 39%;
+
+  //Tablet
+  @media (min-width: 768px) {
+    font-size: 16px;
+    top: -65px;
+    right: 45%;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    top: -66px;
+    right: 42%;
+  }
+
+  @media (min-width: 1070px) {
+    right: 44%;
+  }
+  
 }
 
 .calculator__range input {
@@ -378,6 +410,7 @@
 }
 
 .calculator__checkbox label {
+  cursor: pointer;
   position: relative;
   font-size: 14px;
   margin-left: 24px;
@@ -437,11 +470,12 @@
 
   //Desktop
   @media (min-width: 1024px) {
-    width: 500px;
+    max-width: 500px;
     box-sizing: border-box;
     margin-top: -3px;
     padding: 39px 58px;
     align-self: baseline;
+    margin-left: 1%;
   }
 }
 
@@ -533,6 +567,7 @@
 }
 
 .calculator__form-button {
+  cursor: pointer;
   width: 100%;
   padding: 15px 36px;
   text-align: center;
@@ -700,6 +735,7 @@
 }
 
 .calculator__form-total-user + .calculator__form-button {
+  cursor: pointer;
   margin-top: 10px;
 
   //Desktop

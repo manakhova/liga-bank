@@ -1,6 +1,4 @@
 .services {
-  background-color: $basic-grey;
-
   //Desktop
   @media (min-width: 1024px) {
     max-width: 1170px;
@@ -22,12 +20,10 @@
 }
 
 .services__tabs-item {
-  //Desktop
   @media (min-width: 1024px) {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25%;
     height: 91px;
     box-sizing: border-box;
     background-color: white;
@@ -35,6 +31,16 @@
     font-weight: 500;
     padding: 35px;
     border: none;
+    width: 23%;
+  }
+
+  @media (min-width: 1050px) {
+    width: 24%;
+  }
+
+  //Desktop
+  @media (min-width: 1090px) {
+    width: 25%;
   }
 
   &--active {
@@ -54,6 +60,8 @@
 }
 
 .services__container {
+  background-color: $basic-grey;
+
   @media (max-width: 767px) {
     overflow: hidden;
     width: 320px;
@@ -61,10 +69,15 @@
   }
 
   //Tablet
-  @media (min-width: 768px) and  (max-width: 1024px) {
+  @media (min-width: 768px) and  (max-width: 1023px) {
     width: 768px;
     overflow: hidden;
     margin: 0 auto;
+  }
+
+  //Desktop
+  @media (min-width: 1024px) {
+    max-width: 1170px;
   }
 }
 
@@ -85,7 +98,7 @@
   margin: 0 auto;
 
   //Tablet
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     padding: 57px 45px;
     padding-bottom: 19px;
     width: 678px;

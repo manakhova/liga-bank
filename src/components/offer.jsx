@@ -7,8 +7,17 @@ const Offer = (props) => {
   const {price, downPayment, time} = creditData;
 
   const handleOfferButtonClick = () => {
-    const total = document.querySelector('.calculator__form-total');
-    total.style.display = 'flex';
+    const button = document.querySelectorAll('.calculator__form-button');
+
+    if (creditType === CreditType.MORTGAGE && creditData.price > mortgage.maxPrice) {
+      button.disabled = true;
+    } else if (creditType === CreditType.CAR_LOAN && creditData.price > carLoan.maxPrice) {
+      button.disabled = true;
+    } else {
+      const total = document.querySelector('.calculator__form-total');
+      total.style.display = 'flex';
+      button.disabled = false;
+    }
   };
 
   const creditAmount = getCreditAmount(price, downPayment, offerData.checkbox);

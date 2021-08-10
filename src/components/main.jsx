@@ -22,16 +22,26 @@ const Main = (props) => {
     if (creditType !== 'Выберите цель кредитования') {
       closeSelect();
     }
-  })
+  });
+
+  const getInputsValue = (creditType) => {
+    if (creditType === 'Ипотечное кредитование') {
+      setPrice(1200000);
+      setDownpayment(120000);
+      setTime(5);
+    } else {
+      setPrice(500000);
+      setDownpayment(100000);
+      setTime(1);
+    }
+  }
 
   const handleCreditTypeClick = (evt) => {
     if (creditType !== 'Выберите цель кредитования') {
       cleanAllCreditInputs();
     }
     setCreditType(evt.target.dataset.id);
-    setPrice(0);
-    setTime(0);
-    setDownpayment(0);
+    getInputsValue(evt.target.dataset.id);
     setOfferData({});
     document.querySelector('.calculator__form-select').innerHTML = creditType;
   };

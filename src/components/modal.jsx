@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../store/action';
-import {closeModal, togglePassword} from '../utils'
+import {closeModal, togglePassword} from '../utils';
+import {SHAKE_ANIMATION_TIMEOUT} from '../const';
 
 const Modal = (props) => {
   const {setLoginData} = props;
@@ -18,6 +19,7 @@ const Modal = (props) => {
   const handleLoginButtonClick = (evt) => {
     evt.preventDefault();
 
+    const modal = document.querySelector('.modal');
     const login = document.querySelector('#user-login');
     const password = document.querySelector('#password');
 
@@ -28,8 +30,16 @@ const Modal = (props) => {
 
     localStorage['loginData'] = JSON.stringify(loginData);
 
-    setLoginData(loginData);
-    closeModal();
+    if (login.value === '' || password.value === '') {
+      modal.style.animation = `shake ${SHAKE_ANIMATION_TIMEOUT / 1000}s`;
+
+      setTimeout(() => {
+        modal.style.animation = '';
+      }, SHAKE_ANIMATION_TIMEOUT);
+    } else {
+      setLoginData(loginData);
+      closeModal();
+    }
   };
 
   return (

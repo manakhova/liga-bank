@@ -15,8 +15,13 @@
 
   //Desktop
   @media (min-width: 1024px) {
-    justify-content: space-between;
     max-width: 1170px;
+    padding: 48px;
+  }
+
+  //Desktop
+  @media (min-width: 1170px) {
+    justify-content: space-between;
     padding: 48px 100px;
   }
 }
@@ -33,7 +38,12 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 501px;
+    width: 40%;
+  }
+
+  //Desktop
+  @media (min-width: 1170px) {
+    width: 43%;
   }
 }
 
@@ -68,6 +78,7 @@
   @media (min-width: 1024px) {
     margin-top: -88px;
     margin-left: -2px;
+    width: 56%;
   }
 }
   
@@ -96,7 +107,12 @@
     display: flex;
     justify-content: space-between;
     margin-left: 0;
-    width: 610px;
+    width: 55%;
+  }
+
+  //Desktop
+  @media (min-width: 1170px) {
+    width: 52%;
   }
 }
   

@@ -8,6 +8,7 @@ const Header = () => {
     modal.style.display = `block`;
     modal.querySelector('#user-login').focus();
     document.addEventListener('keydown', closeKeydownModal);
+    document.querySelector(`body`).style.overflow = `hidden`;
   };
 
   const handleOpenMenuButtonClick = () => {
