@@ -1,3 +1,12 @@
+.page-header--open {
+  height: 100vh;
+
+  //Tablet
+  @media (min-width: 768px) {
+    height: inherit;
+  }
+}
+
 .page-header__container {
   margin: 0 auto;
   display: flex;
@@ -19,7 +28,6 @@
   }
 
   &--open {
-    height: 100vh;
     flex-direction: column;
     justify-content: start;
 

@@ -133,7 +133,9 @@ const CreditSettings = (props) => {
 
   const handleTimeRange = (evt) => {
     const time = document.querySelector('#time');
+    const text = document.querySelector('.calculator__input-text');
 
+    text.style.marginRight = '3px';
     time.value = evt.target.value;
     setTime(Number(evt.target.value));
   };
@@ -184,7 +186,7 @@ const CreditSettings = (props) => {
         </label>
         <div className="calculator__form-credit">
           <button className="calculator__button" id="minus" type="button" onClick={handleCalcButtonClick}></button>
-          <input className="calculator__input" id="cost" type="number" onInput={handlePriceInput}
+          <input className="calculator__input" id="cost" type="text" onInput={handlePriceInput}
            min={minPrice} max={maxPrice} placeholder={`${minPrice} рублей`} value={creditData.price}/>
           <button className="calculator__button" id="plus" type="button" onClick={handleCalcButtonClick}></button>
         </div>

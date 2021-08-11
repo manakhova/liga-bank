@@ -82,15 +82,20 @@ export const togglePassword = () => {
 
 export const openMenu = () => { 
   document.querySelector('.page-header__container').classList.add('page-header__container--open');
+  document.querySelector('.page-header').classList.add('page-header--open');
   document.querySelector('.navigation--header').classList.add('navigation--open');
   document.querySelector('.authorization').classList.add('authorization--open');
+
   document.querySelector(`body`).style.overflow = `hidden`;
+  document.querySelector(`.page-header`).style.overflow = `scroll`;
 };
 
 export const closeMenu = () => { 
   document.querySelector('.page-header__container').classList.remove('page-header__container--open');
+  document.querySelector('.page-header').classList.remove('page-header--open');
   document.querySelector('.navigation--header').classList.remove('navigation--open');
   document.querySelector('.authorization').classList.remove('authorization--open');
+
   document.querySelector(`body`).style.overflow = `scroll`;
 };
 
@@ -148,9 +153,11 @@ export const getTime = (time) => {
 };
 
 export const getTimeText = (time) => {
+  const text = document.querySelector('.calculator__input-text');
   if (time === 1 || time === 21) {
     return `год`;
   } else if (time === 2 || time === 3 || time === 4 || time === 22 || time === 23 || time === 24) {
+    text.style.marginRight = '-5px';
     return `года`;
   } else {
     return `лет`;
